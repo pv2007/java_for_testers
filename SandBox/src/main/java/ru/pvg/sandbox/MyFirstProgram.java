@@ -7,6 +7,6 @@ public class MyFirstProgram {
 
 		int l=5;
 		int s=l*l;
-    System.out.println("Площадь квадрата со стороной " + l +" = "+s);
+    System.out.println("РџР»РѕС‰Р°РґСЊ РєРІР°РґСЂР°С‚Р° СЃРѕ СЃС‚РѕСЂРѕРЅРѕР№ " + l +" = "+s);
 	}
 }
