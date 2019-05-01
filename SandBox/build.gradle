@@ -2,10 +2,20 @@ apply plugin: 'java'
 apply plugin: 'application'
 mainClassName='ru.pvg.sandbox.MyFirstProgram'
 
+//mainClassName='ru.pvg.sandbox.HomeW1'
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
+
 dependencies {
-    implementation 'org.testng:testng:7.0.0-beta4'
+    testCompile 'org.testng:testng:6.10'
 }
+
+//
+//repositories {
+//    mavenCentral()
+//}
+//dependencies {
+//    implementation 'org.testng:testng:7.0.0-beta4'
+//}
