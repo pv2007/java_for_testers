@@ -22,8 +22,4 @@ public class MyFirstProgram {
     System.out.println("ПРиветствуем тебя в JAVA, " + nameGuest + "!!!");
   }
 
-
-
-
-
 }
