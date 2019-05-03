@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+//apply plugin: 'application'
+//mainClassName='ru.pvg.sandbox.MyFirstProgram'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation 'org.testng:testng:6.14.3'
+}
