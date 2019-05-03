@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookCase01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ru/pvg/addressbook/AddressbookTC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookTC.java" beforeDir="false" />
-    </list>
+    <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -200,7 +194,6 @@
       <method v="2" />
     </configuration>
     <configuration name="AddressbookCase01" type="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.pvg.addressbook" />
