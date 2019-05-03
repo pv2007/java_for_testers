@@ -1,15 +1,21 @@
 package ru.pvg.addressbook;
-//package com.example.tests;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-public class AddressbookTC {
+import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.fail;
+
+/*
+   Created Владимир  at 17:02  03.05.2019
+*/
+public class AddressbookCase01 {
+
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -23,7 +29,7 @@ public class AddressbookTC {
   }
 
   @Test
-  public void AddressbookTC() throws Exception {
+  public void testAddressbookTC() throws Exception {
     driver.get("http://localhost:81/addressbook/");
 //    driver.findElement(By.linkText("Logout")).click();
     driver.findElement(By.name("user")).clear();
@@ -44,6 +50,7 @@ public class AddressbookTC {
     driver.findElement(By.name("submit")).click();
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.linkText("Logout")).click();
+    Assert.assertEquals( 25.0,25.0);
   }
 
   @AfterClass(alwaysRun = true)
@@ -87,4 +94,5 @@ public class AddressbookTC {
       acceptNextAlert = true;
     }
   }
+
 }
