@@ -2,7 +2,6 @@ package ru.pvg.addressbook;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -27,33 +26,53 @@ public class AddressbookCase01 {
     baseUrl = "http://localhost:81/addressbook/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     driver.get("http://localhost:81/addressbook/");
+    login("admin", "secret");
+  }
+
+  private void login(String user, String password) {
     driver.findElement(By.name("user")).clear();
-    driver.findElement(By.name("user")).sendKeys("admin");
+    driver.findElement(By.name("user")).sendKeys(user);
     driver.findElement(By.name("pass")).clear();
-    driver.findElement(By.name("pass")).sendKeys("secret");
+    driver.findElement(By.name("pass")).sendKeys(password);
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
   }
 
   @Test
   public void testGroupCreation() throws Exception {
-    driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.name("new")).click();
+    gotoGroupPage("groups");
+    initGroupCreation();
+    fillGroupForm(new GroupData("test1_1", "test2", "test3"));
+    submitGroupCreation();
+    gotoGroupPage("groups");
+    gotoGroupPage("home");
+  }
+
+  private void submitGroupCreation() {
+    driver.findElement(By.name("submit")).click();
+  }
+
+  private void fillGroupForm(GroupData groupData) {
     driver.findElement(By.name("group_name")).click();
     driver.findElement(By.name("group_name")).clear();
-    driver.findElement(By.name("group_name")).sendKeys("test1_1");
+    driver.findElement(By.name("group_name")).sendKeys(groupData.getGroupName());
     driver.findElement(By.name("group_header")).click();
     driver.findElement(By.name("group_header")).clear();
-    driver.findElement(By.name("group_header")).sendKeys("test2");
+    driver.findElement(By.name("group_header")).sendKeys(groupData.getGroupHeader());
     driver.findElement(By.name("group_footer")).clear();
-    driver.findElement(By.name("group_footer")).sendKeys("test3");
-    driver.findElement(By.name("submit")).click();
-    driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.linkText("home")).click();
+    driver.findElement(By.name("group_footer")).sendKeys(groupData.getGroupFooter());
+  }
+
+  private void initGroupCreation() {
+    driver.findElement(By.name("new")).click();
+  }
+
+  private void gotoGroupPage(String groups) {
+    driver.findElement(By.linkText(groups)).click();
   }
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
-    driver.findElement(By.linkText("Logout")).click();
+    gotoGroupPage("Logout");
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
