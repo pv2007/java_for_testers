@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="" />
+    <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookCase01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookCase01.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -42,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookCase01.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="153">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,7 +138,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -238,24 +241,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AddressbookTC_testAddressbookTC - 2019.05.03 at 17h 30m 12s.xml">
-      <configuration name="AddressbookTC.testAddressbookTC" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="AddressbookTC_testAddressbookTC - 2019.05.03 at 17h 31m 15s.xml">
-      <configuration name="AddressbookTC.testAddressbookTC" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="AddressbookCase01 - 2019.05.03 at 17h 39m 16s.xml">
-      <configuration name="AddressbookCase01" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddressbookCase01 - 2019.05.03 at 17h 40m 25s.xml">
-      <configuration name="AddressbookCase01" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddressbookCase01 - 2019.05.03 at 18h 19m 07s.xml">
-      <configuration name="AddressbookCase01" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddressbookCase01 - 2019.05.03 at 18h 28m 44s.xml">
-      <configuration name="AddressbookCase01" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="AddressbookCase01 - 2019.05.03 at 18h 29m 35s.xml">
       <configuration name="AddressbookCase01" configurationId="TestNG" />
     </history-entry>
@@ -268,9 +253,28 @@
     <history-entry file="AddressbookCase01 - 2019.05.03 at 18h 35m 55s.xml">
       <configuration name="AddressbookCase01" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="AddressbookCase01 - 2019.05.03 at 18h 46m 28s.xml">
+      <configuration name="AddressbookCase01" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressbookCase01 - 2019.05.04 at 09h 42m 39s.xml">
+      <configuration name="AddressbookCase01" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressbookCase01 - 2019.05.04 at 09h 46m 34s.xml">
+      <configuration name="AddressbookCase01" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressbookCase01 - 2019.05.04 at 10h 18m 38s.xml">
+      <configuration name="AddressbookCase01" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressbookCase01 - 2019.05.04 at 10h 28m 17s.xml">
+      <configuration name="AddressbookCase01" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressbookCase01 - 2019.05.04 at 10h 29m 23s.xml">
+      <configuration name="AddressbookCase01" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1294" height="694" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -280,10 +284,9 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47350428" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26495728" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,6 +295,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32991454" />
+      <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -302,18 +306,6 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookCase01.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookTC.java" />
@@ -340,8 +332,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/AddressbookCase01.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="153">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -388,6 +380,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -399,11 +392,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>main|addressbook-web-tests</last-edited>
+          <last-edited>test|addressbook-web-tests</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
