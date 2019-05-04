@@ -26,17 +26,16 @@ public class AddressbookCase01 {
     driver = new FirefoxDriver();
     baseUrl = "http://localhost:81/addressbook/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void testAddressbookTC() throws Exception {
     driver.get("http://localhost:81/addressbook/");
-//    driver.findElement(By.linkText("Logout")).click();
     driver.findElement(By.name("user")).clear();
     driver.findElement(By.name("user")).sendKeys("admin");
     driver.findElement(By.name("pass")).clear();
     driver.findElement(By.name("pass")).sendKeys("secret");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
+  }
+
+  @Test
+  public void testGroupCreation() throws Exception {
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();
@@ -49,12 +48,12 @@ public class AddressbookCase01 {
     driver.findElement(By.name("group_footer")).sendKeys("test3");
     driver.findElement(By.name("submit")).click();
     driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.linkText("Logout")).click();
-    Assert.assertEquals( 25.0,25.0);
+    driver.findElement(By.linkText("home")).click();
   }
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
+    driver.findElement(By.linkText("Logout")).click();
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
