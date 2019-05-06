@@ -1,4 +1,4 @@
-package ru.pvg.addressbook;
+package ru.pvg.addressbook.tests;
 
 import org.testng.annotations.Test;
 
@@ -9,11 +9,11 @@ public class GroupDeleteTests extends TestBase{
 
   @Test
   public void testGroupDelete() throws Exception {
-    gotoGroupPage("groups");
-    selectGroup();
-    deleteSelectedGroup();
-    gotoGroupPage("groups");
-    gotoGroupPage("home");
+    app.gotoGroupPage("groups");
+    app.selectGroup();
+    app.deleteSelectedGroup();
+    app.gotoGroupPage("groups");
+    app.gotoGroupPage("home");
   }
 
 }
