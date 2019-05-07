@@ -1,11 +1,11 @@
 package ru.pvg.addressbook.model;
 
-public class GroupInABookData {
+public class GroupData {
   private final String groupName;
   private final String groupHeader;
   private final String groupFooter;
 
-  public GroupInABookData(String groupName, String groupHeader, String groupFooter) {
+  public GroupData(String groupName, String groupHeader, String groupFooter) {
     this.groupName = groupName;
     this.groupHeader = groupHeader;
     this.groupFooter = groupFooter;
