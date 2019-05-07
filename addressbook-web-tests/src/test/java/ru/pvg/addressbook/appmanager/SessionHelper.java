@@ -10,7 +10,7 @@ public class SessionHelper {
   private WebDriver driver;
 
   public SessionHelper(WebDriver driver) {
-    this.driver = driver;
+        this.driver = driver;
   }
 
   public void login(String user, String password) {
