@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ConTestBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/ContactData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/ru/pvg/addressbook/tests/ContactCreateTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/ru/pvg/addressbook/tests/ContactCreateTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ConTestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ConTestBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -62,13 +65,19 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#isElementPresent#0;class#testContactCreate#0;class#ContactCreateTests#0" />
-                <element signature="method#isAlertPresent#0;class#testContactCreate#0;class#ContactCreateTests#0" />
-                <marker date="1557315901723" expanded="true" signature="1079:2546" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/ContactData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-477">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -76,10 +85,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ConTestBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+            <state relative-caret-position="136">
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/GroupHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#875#876#0" expanded="true" />
+                <element signature="e#907#908#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+                <element signature="e#984#985#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/SessionHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/TestBase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,6 +220,7 @@
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/GroupHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ConTestBase.java" />
       </list>
     </option>
   </component>
@@ -309,28 +335,11 @@
     </option>
   </component>
   <component name="RunManager" selected="TestNG.ContactCreateTests">
-    <configuration name="ContactCreateTests (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactCreateTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pvg.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.pvg.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pvg.addressbook.tests.ContactCreateTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContactCreateTests (2)" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.pvg.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.pvg.addressbook.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -347,7 +356,24 @@
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pvg.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.pvg.addressbook.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.pvg.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pvg.addressbook.tests.ContactCreateTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContactCreateTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pvg.addressbook.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -364,7 +390,7 @@
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pvg.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.pvg.addressbook.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -436,7 +462,7 @@
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pvg.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.pvg.addressbook.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -482,18 +508,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ContactCreateTests_(1) - 2019.05.08 at 14h 18m 56s.xml">
-      <configuration name="ContactCreateTests (1)" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="ContactCreateTests - 2019.05.08 at 14h 21m 09s.xml">
-      <configuration name="ContactCreateTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="ContactCreateTests_(2) - 2019.05.08 at 14h 23m 01s.xml">
-      <configuration name="ContactCreateTests (2)" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="ContactCreateTests - 2019.05.08 at 14h 24m 23s.xml">
-      <configuration name="ContactCreateTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="ContactCreateTests_testContactCreation - 2019.05.08 at 14h 26m 16s.xml">
       <configuration name="ContactCreateTests.testContactCreation" configurationId="TestNG" />
     </history-entry>
@@ -512,6 +526,18 @@
     <history-entry file="ContactCreateTests_testContactCreation - 2019.05.08 at 14h 45m 34s.xml">
       <configuration name="ContactCreateTests.testContactCreation" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="ContactCreateTests - 2019.05.08 at 14h 57m 34s.xml">
+      <configuration name="ContactCreateTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="ContactCreateTests - 2019.05.08 at 15h 04m 37s.xml">
+      <configuration name="ContactCreateTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="ContactCreateTests_testContactCreation - 2019.05.08 at 15h 37m 49s.xml">
+      <configuration name="ContactCreateTests.testContactCreation" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="ContactCreateTests - 2019.05.08 at 15h 42m 37s.xml">
+      <configuration name="ContactCreateTests" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1294" height="694" extended-state="6" />
@@ -527,7 +553,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" visible="true" weight="0.3965812" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" weight="0.3965812" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -548,7 +574,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -672,20 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/GroupHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/ContactTC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -699,7 +711,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/SessionHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -748,17 +760,38 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/TestBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/GroupHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/ContactData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ConTestBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state relative-caret-position="136">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -768,12 +801,9 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#isElementPresent#0;class#testContactCreate#0;class#ContactCreateTests#0" />
-            <element signature="method#isAlertPresent#0;class#testContactCreate#0;class#ContactCreateTests#0" />
-            <marker date="1557315901723" expanded="true" signature="1079:2546" ph="..." />
           </folding>
         </state>
       </provider>
