@@ -1,36 +1,19 @@
 package ru.pvg.addressbook.appmanager;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import ru.pvg.addressbook.model.ContactData;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.openqa.selenium.By.linkText;
-import static org.testng.Assert.fail;
 
 /*
-   Created Владимир  at 15:56  08.05.2019
+   Created Владимир  at 16:14  08.05.2019
 */
-public class ConAppManager {
-  protected WebDriver driver;
-  private String baseUrl;
-  private StringBuffer verificationErrors = new StringBuffer();
-  private boolean acceptNextAlert = true;
+public class ContactHelper extends HelperBase {
 
-  public void initCon() {
-    driver = new FirefoxDriver();
-    baseUrl = "http://localhost:81/addressbook/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    conLogin("admin", "secret");
-  }
 
-  public void stopCon() {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
+  public ContactHelper(WebDriver driver) {
+    super(driver);
   }
 
   public void fillContactForm(ContactData contactData) {
@@ -67,47 +50,5 @@ public class ConAppManager {
   public void initContactCreation(By home, String s) {
     driver.findElement(home).click();
     driver.findElement(linkText(s)).click();
-  }
-
-  protected void conLogin(String username, String password) {
-    driver.get("http://localhost:81/addressbook/");
-    driver.findElement(By.name("user")).clear();
-    driver.findElement(By.name("user")).sendKeys(username);
-    driver.findElement(By.name("pass")).clear();
-    driver.findElement(By.name("pass")).sendKeys(password);
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
   }
 }

@@ -10,15 +10,25 @@ import ru.pvg.addressbook.appmanager.ApplicationManager;
 public class TestBase {
 
   protected final ApplicationManager app = new ApplicationManager();
+//  protected final ConAppManager conApp = new ConAppManager();
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
     app.init();
+//    conApp.initCon();
   }
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
     app.stop();
+  //  conApp.stopCon();
   }
+
+/*
+
+  public ConAppManager getConApp() {
+    return conApp;
+  }
+*/
 
 }
