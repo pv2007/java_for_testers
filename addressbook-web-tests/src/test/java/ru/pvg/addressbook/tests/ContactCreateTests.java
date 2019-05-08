@@ -18,19 +18,8 @@ import org.openqa.selenium.support.ui.Select;
 /*
    Created Владимир  at 11:26  08.05.2019
 */
-public class ContactCreateTests {
-  private WebDriver driver;
-    private String baseUrl;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
-
-
-  @BeforeClass(alwaysRun = true)
-    public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    baseUrl = "http://localhost:81/addressbook/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
+public class ContactCreateTests extends ConTestBase {
+  private boolean acceptNextAlert = true;
 
 
   @Test
@@ -72,16 +61,6 @@ public class ContactCreateTests {
       driver.findElement(By.name("submit")).click();
       driver.findElement(linkText("home")).click();
     }
-
-
-  @AfterClass(alwaysRun = true)
-  public void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
 
 
   private boolean isElementPresent(By by) {
