@@ -18,4 +18,4 @@ public class GroupCreateTests extends TestBase {
     app.getNavigationHelper().gotoGroupPage("home");
   }
 
-          }
+}
