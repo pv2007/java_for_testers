@@ -19,9 +19,14 @@ public class HelperBase {
 
   protected void type(By locator, String text) {
     click(locator);
-    if (text != null) {     //если параметр задан null  то ничего не очищать и поле не записывать
-      driver.findElement(locator).clear();
-      driver.findElement(locator).sendKeys(text);
+    if (text != null) {     //если параметр задан НЕ null , то  очищать и записывать новое значение в поле
+      String existingText = driver.findElement(locator).getAttribute("Value");  // !только для полей ввода в экранной форме
+      String existingText2 = driver.findElement(locator).getText();  // !только для полей ввода в экранной форме
+      if (existingText == null) {existingText = existingText2;}
+      if (! text.equals(existingText)) {    // если новое значение отличается от имеющегося, то очищать и записывать новое значение
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+      }
     }
   }
 
