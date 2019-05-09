@@ -26,6 +26,25 @@ public class EquationTests {
   public void test2() {
     Equation e=new Equation(1,5,6);
     Assert.assertEquals(e.getEquationNumber(),2);
-
   }
+
+  @Test
+  public void testLinear() {
+    Equation e=new Equation(0,5,10);
+    Assert.assertEquals(e.getEquationNumber(),1);
+  }
+
+  @Test
+  public void testConstant() {
+    Equation e=new Equation(0,0,10);
+    Assert.assertEquals(e.getEquationNumber(),0);
+  }
+
+  @Test
+  public void testZero() {
+    Equation e=new Equation(0,0,0);
+    Assert.assertEquals(e.getEquationNumber(),-1);
+  }
+
+
 }

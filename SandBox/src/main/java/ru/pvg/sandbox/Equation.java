@@ -12,19 +12,40 @@ public class Equation {
 
   public Equation(double a, double b, double c) {
 
+
     this.a = a;
     this.b = b;
     this.c = c;
     double d = b * b - 4 * a * c;
-    if (d > 0) {
-      n = 2;
+
+
+
+    if (a==0) {
+      if (b==0) {
+        if (c==0) {
+          System.out.println("бесконечное количество решений");
+          n=-1;
+        } else {
+          System.out.println("Это обычное равенство, не имеет решение");
+          n=0;
+        }
+      } else {
+        System.out.println("Это линейное уравнение, имеет одно решение");
+        n=1;
+      }
+
     } else {
-      if (d == 0) {
+      System.out.println("Это квадратное уравнение, имеет два решения");
+      if (d > 0) {
+        n = 2;
+      } else if (d == 0) {
         n = 1;
       } else {
         n = 0;
       }
     }
+
+
   }
 
   public int getEquationNumber() {
