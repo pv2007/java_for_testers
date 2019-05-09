@@ -16,7 +16,6 @@ public class ApplicationManager {
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
-  private ContactHelper contactHelper;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
 
@@ -44,10 +43,6 @@ public class ApplicationManager {
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
-  }
-
-  public ContactHelper getContactHelper() {
-    return contactHelper;
   }
 
   public NavigationHelper getNavigationHelper() {
