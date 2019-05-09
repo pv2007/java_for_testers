@@ -1,5 +1,6 @@
 package ru.pvg.addressbook.tests;
 
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import ru.pvg.addressbook.appmanager.ApplicationManager;
@@ -9,8 +10,8 @@ import ru.pvg.addressbook.appmanager.ApplicationManager;
 */
 public class TestBase {
 
-  protected final ApplicationManager app = new ApplicationManager();
-//  protected final ConAppManager conApp = new ConAppManager();
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
