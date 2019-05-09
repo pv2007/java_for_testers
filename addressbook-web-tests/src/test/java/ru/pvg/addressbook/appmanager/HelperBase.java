@@ -19,8 +19,10 @@ public class HelperBase {
 
   protected void type(By locator, String text) {
     click(locator);
-    driver.findElement(locator).clear();
-    driver.findElement(locator).sendKeys(text);
+    if (text != null) {     //если параметр задан null  то ничего не очищать и поле не записывать
+      driver.findElement(locator).clear();
+      driver.findElement(locator).sendKeys(text);
+    }
   }
 
   private boolean isElementPresent(By by) {
