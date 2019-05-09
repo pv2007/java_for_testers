@@ -51,4 +51,25 @@ public class ContactHelper extends HelperBase {
     driver.findElement(home).click();
     driver.findElement(linkText(s)).click();
   }
+
+  public void initContactUpdate(By home, String s) {
+    driver.findElement(home).click();
+//    driver.findElement(By.id(s)).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='import'])[1]/following::img[5]")).click();
+    //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='import'])[1]/following::img[2]")).click();
+  }
+
+  public void submitContactUpdate() {
+    driver.findElement(By.name("update")).click();
+    }
+
+  public void initContactDelete(By home, String s) {
+    driver.findElement(home).click();
+    driver.findElement(By.id(s)).click();
+  }
+
+  public void submitContactDelete() {
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]")).click();
+    driver.switchTo().alert().accept();
+  }
 }

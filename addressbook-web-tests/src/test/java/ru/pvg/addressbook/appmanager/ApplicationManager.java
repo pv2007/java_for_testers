@@ -23,7 +23,7 @@ public class ApplicationManager {
   public void init() {
     driver = new FirefoxDriver();
     baseUrl = "http://localhost:81/addressbook/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     driver.get("http://localhost:81/addressbook/");
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
@@ -34,6 +34,7 @@ public class ApplicationManager {
 
 
   public void stop() {
+    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     navigationHelper.gotoGroupPage("Logout");
     driver.quit();
     String verificationErrorString = verificationErrors.toString();

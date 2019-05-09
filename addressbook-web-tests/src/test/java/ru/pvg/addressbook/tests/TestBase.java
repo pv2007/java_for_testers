@@ -15,20 +15,11 @@ public class TestBase {
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
     app.init();
-//    conApp.initCon();
   }
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
     app.stop();
-  //  conApp.stopCon();
   }
-
-/*
-
-  public ConAppManager getConApp() {
-    return conApp;
-  }
-*/
 
 }
