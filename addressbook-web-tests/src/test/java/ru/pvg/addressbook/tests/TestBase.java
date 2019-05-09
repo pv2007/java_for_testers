@@ -10,6 +10,7 @@ import ru.pvg.addressbook.appmanager.ApplicationManager;
 public class TestBase {
 
   protected final ApplicationManager app = new ApplicationManager();
+//  protected final ConAppManager conApp = new ConAppManager();
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
