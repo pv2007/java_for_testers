@@ -10,12 +10,12 @@ public class GroupModifTests extends TestBase {
 
   @Test
   public void testGroupModification(){
-    app.getNavigationHelper().gotoGroupPage("groups");
+    app.getNavigationHelper().gotoPage("groups");
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().initGroupModification();
     app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "Новая группа тест33"));
     app.getGroupHelper().submitGroupModificarion();
-    app.getNavigationHelper().gotoGroupPage("groups");
-    app.getNavigationHelper().gotoGroupPage("home");
+    app.getNavigationHelper().gotoPage("groups");
+    app.getNavigationHelper().gotoPage("home");
   }
 }

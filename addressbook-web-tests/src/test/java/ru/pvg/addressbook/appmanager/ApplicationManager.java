@@ -4,10 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerDriverService;
 import org.openqa.selenium.remote.BrowserType;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.fail;
@@ -58,7 +56,7 @@ public class ApplicationManager {
 
   public void stop() {
     // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    navigationHelper.gotoGroupPage("Logout");
+    navigationHelper.gotoPage("Logout");
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
