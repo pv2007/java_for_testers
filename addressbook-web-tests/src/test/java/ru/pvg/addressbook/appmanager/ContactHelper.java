@@ -61,6 +61,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactUpdate() {
+    // поиск и редактирование второго сверху на странице элемента Edit (img)
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='import'])[1]/following::img[5]")).click();
   }
 
@@ -68,8 +69,8 @@ public class ContactHelper extends HelperBase {
     driver.findElement(By.name("update")).click();
     }
 
-  public void initContactDelete(String idContact) {
-    driver.findElement(By.id(idContact)).click();
+  public void initContactDelete(String deleteContact) {
+    driver.findElement(By.name(deleteContact)).click();
   }
 
   public void submitContactDelete() {
