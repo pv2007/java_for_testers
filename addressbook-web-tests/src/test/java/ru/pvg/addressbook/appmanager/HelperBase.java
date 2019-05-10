@@ -21,6 +21,7 @@ public class HelperBase {
     click(locator);
     if (text != null) {     //если параметр задан НЕ null , то  очищать и записывать новое значение в поле
       String existingText = driver.findElement(locator).getAttribute("value");  // !только для полей ввода в экранной форме
+      // обязательно value с маленькой буквы!
       String existingText2 = driver.findElement(locator).getText();  // !не для  полей ввода!
 
       if (! text.equals(existingText)) {    // если новое значение отличается от имеющегося, то очищать и записывать новое значение
@@ -30,7 +31,7 @@ public class HelperBase {
     }
   }
 
-  private boolean isElementPresent(By by) {
+  protected boolean isElementPresent(By by) {
     try {
       driver.findElement(by);
       return true;

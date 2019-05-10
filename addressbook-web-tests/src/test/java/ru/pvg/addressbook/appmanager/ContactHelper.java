@@ -2,6 +2,8 @@ package ru.pvg.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.pvg.addressbook.model.ContactData;
 
 import static org.openqa.selenium.By.linkText;
@@ -16,7 +18,7 @@ public class ContactHelper extends HelperBase {
     super(driver);
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     driver.findElement(By.name("firstname")).click();
     driver.findElement(By.name("firstname")).clear();
     driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
@@ -40,7 +42,15 @@ public class ContactHelper extends HelperBase {
     driver.findElement(By.name("work")).sendKeys(contactData.getWorkPhone());
     driver.findElement(By.name("fax")).clear();
     driver.findElement(By.name("fax")).sendKeys(contactData.getFax());
-  }
+
+    if (creation) {
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      } else {
+        Assert.assertFalse(isElementPresent(By.name("new_group")));
+       }
+    }
+
+
 
   public void submitContactCreation() {
     driver.findElement(By.name("submit")).click();
