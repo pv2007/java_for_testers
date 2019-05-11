@@ -43,12 +43,17 @@ public class ContactHelper extends HelperBase {
     driver.findElement(By.name("fax")).clear();
     driver.findElement(By.name("fax")).sendKeys(contactData.getFax());
 
+    // присвоение полю из выпадающегог списка Group возможно только при создании contact
+    // при изменении этого поля нет на экране (его нельзя изменить
     if (creation) {
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-      } else {
-        Assert.assertFalse(isElementPresent(By.name("new_group")));
-       }
+          if (contactData.getGroup() != null) {
+            //присвоить значение атрибуту Group только если он указан
+            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+          }
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group"))); //проверка отсутствия поля Group на форме
     }
+  }
 
 
 
@@ -61,20 +66,31 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactUpdate() {
-    // поиск и редактирование второго сверху на странице элемента Edit (img)
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='import'])[1]/following::img[5]")).click();
+    // поиск и редактирование первого сверху на странице элемента Edit (img)
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='z8z9z10'])[1]/following::img[2]")).click();
+    //   driver.findElement(By.linkText("Edit")).click();
   }
 
   public void submitContactUpdate() {
     driver.findElement(By.name("update")).click();
     }
 
-  public void initContactDelete(String deleteContact) {
-    driver.findElement(By.name(deleteContact)).click();
+  public void initContactDelete() {
+    driver.findElement(By.name("selected[]")).click();
   }
 
   public void submitContactDelete() {
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]")).click();
     driver.switchTo().alert().accept();
+  }
+
+  public void createContact(ContactData contactData, boolean b) {
+    initContactCreation();
+    fillContactForm(contactData,true);
+    submitContactCreation();
+  }
+
+  public boolean isThereAnyContact() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
