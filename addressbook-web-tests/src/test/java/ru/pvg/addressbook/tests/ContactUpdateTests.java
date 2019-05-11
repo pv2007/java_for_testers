@@ -2,6 +2,7 @@ package ru.pvg.addressbook.tests;
 
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
+import ru.pvg.addressbook.model.GroupData;
 
 /*
    Created Владимир  at 9:36  09.05.2019
