@@ -37,7 +37,7 @@ public class GroupDeleteTests extends TestBase {
 //    for (int i = 0; i < after.size(); i++) {
 //      Assert.assertEquals(before.get(i), after.get(i));
 //    }
-    
+
     //сравниваем коллекции before и after целиком
     Assert.assertEquals(before, after);
 

@@ -1,24 +1,10 @@
 package ru.pvg.addressbook.model;
 
 public class GroupData {
+  private final String id;
   private final String groupName;
   private final String groupHeader;
   private final String groupFooter;
-
-  @Override
-  public String toString() {
-    return "GroupData{" +
-            "groupName='" + groupName + '\'' +
-            ", groupHeader='" + groupHeader + '\'' +
-            ", groupFooter='" + groupFooter + '\'' +
-            '}';
-  }
-
-  public GroupData(String groupName, String groupHeader, String groupFooter) {
-    this.groupName = groupName;
-    this.groupHeader = groupHeader;
-    this.groupFooter = groupFooter;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -27,18 +13,42 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
-    if (groupName != null ? !groupName.equals(groupData.groupName) : groupData.groupName != null) return false;
-    if (groupHeader != null ? !groupHeader.equals(groupData.groupHeader) : groupData.groupHeader != null) return false;
-    return groupFooter != null ? groupFooter.equals(groupData.groupFooter) : groupData.groupFooter == null;
+    if (id != null ? !id.equals(groupData.id) : groupData.id != null) return false;
+    return groupName != null ? groupName.equals(groupData.groupName) : groupData.groupName == null;
 
   }
 
   @Override
   public int hashCode() {
-    int result = groupName != null ? groupName.hashCode() : 0;
-    result = 31 * result + (groupHeader != null ? groupHeader.hashCode() : 0);
-    result = 31 * result + (groupFooter != null ? groupFooter.hashCode() : 0);
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
     return result;
+  }
+
+  @Override
+  public String toString() {
+    return "GroupData{" +
+            "id='" + id + '\'' +
+            ", groupName='" + groupName + '\'' +
+            '}';
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public GroupData(String groupName, String groupHeader, String groupFooter) {
+    this.id = null;
+    this.groupName = groupName;
+    this.groupHeader = groupHeader;
+    this.groupFooter = groupFooter;
+  }
+
+  public GroupData(String id, String groupName, String groupHeader, String groupFooter) {
+    this.id = id;
+    this.groupName = groupName;
+    this.groupHeader = groupHeader;
+    this.groupFooter = groupFooter;
   }
 
   public String getGroupName() {
