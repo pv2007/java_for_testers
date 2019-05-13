@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
+import java.util.List;
+
 /*
    Created Владимир  at 12:41  04.05.2019
 */
@@ -17,12 +19,12 @@ public class GroupDeleteTests extends TestBase{
       app.getGroupHelper().createGroup(new GroupData("test1", "test2 ", null));
       app.getNavigationHelper().gotoPage("groups");
     }
-    int before = app.getGroupHelper().getGroupCount();
-    app.getGroupHelper().selectGroup(before - 1);
+    List<GroupData> before = app.getGroupHelper().getGroupList();
+    app.getGroupHelper().selectGroup(before.size() - 1);
     app.getGroupHelper().deleteSelectedGroup();
     app.getNavigationHelper().gotoPage("groups");
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before - 1);
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size() - 1);
 
     app.getNavigationHelper().gotoPage("home");
   }

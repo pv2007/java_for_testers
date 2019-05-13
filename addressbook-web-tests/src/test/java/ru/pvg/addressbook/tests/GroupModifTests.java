@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
+import java.util.List;
+
 /*
    Created Владимир  at 18:07  07.05.2019
 */
@@ -18,14 +20,14 @@ public class GroupModifTests extends TestBase {
       app.getNavigationHelper().gotoPage("groups");
     }
 
-    int before = app.getGroupHelper().getGroupCount();
-    app.getGroupHelper().selectGroup(before - 1);
+    List<GroupData> before = app.getGroupHelper().getGroupList();
+    app.getGroupHelper().selectGroup(before.size() - 1);
     app.getGroupHelper().initGroupModification();
     app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "Новая группа тест33"));
     app.getGroupHelper().submitGroupModificarion();
     app.getNavigationHelper().gotoPage("groups");
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before);
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size());
 
     app.getNavigationHelper().gotoPage("home");
   }
