@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/ContactHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/ContactHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactDeleteTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactDeleteTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SandBox/src/main/java/ru/pvg/sandbox/Primes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SandBox/src/test/java/ru/pvg/sandbox/PrimeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -47,149 +46,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="17" column="120" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/GroupHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#287#288#0" expanded="true" />
-                <element signature="e#310#311#0" expanded="true" />
-                <element signature="e#661#662#0" expanded="true" />
-                <element signature="e#692#693#0" expanded="true" />
-                <element signature="e#796#797#0" expanded="true" />
-                <element signature="e#834#835#0" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-                <element signature="e#907#908#0" expanded="true" />
-                <element signature="e#950#951#0" expanded="true" />
-                <element signature="e#984#985#0" expanded="true" />
-                <element signature="e#1158#1159#0" expanded="true" />
-                <element signature="e#1214#1215#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/ContactHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="74" column="50" lean-forward="true" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2652#2653#0" expanded="true" />
-                <element signature="e#2748#2749#0" expanded="true" />
-                <element signature="e#3151#3152#0" expanded="true" />
-                <element signature="e#3247#3248#0" expanded="true" />
-                <element signature="e#3728#3729#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/HelperBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-              <folding>
-                <element signature="e#324#325#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactDeleteTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.0.0-alpha-1/396b93f050e477d9ea154465581856239855a797/selenium-api-4.0.0-alpha-1-sources.jar!/org/openqa/selenium/By.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
-              <folding>
-                <element signature="e#2276#2277#0" expanded="true" />
-                <element signature="e#2317#2318#0" expanded="true" />
-                <element signature="e#2528#2529#0" expanded="true" />
-                <element signature="e#2583#2584#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/NavigationHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -265,7 +122,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -330,7 +187,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -541,6 +398,7 @@
     <list>
       <item itemvalue="TestNG.GroupCreateTests" />
       <item itemvalue="TestNG.GroupDeleteTests" />
+      <item itemvalue="TestNG.ContactCreateTests" />
       <item itemvalue="TestNG.ContactDeleteTests" />
       <item itemvalue="TestNG.ContactCreateTests.testContactCreation" />
       <item itemvalue="TestNG.ContactCreateTests.testContactCreation (1)" />
@@ -571,9 +429,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ContactDeleteTests - 2019.05.11 at 13h 54m 18s.xml">
-      <configuration name="ContactDeleteTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="ContactDeleteTests - 2019.05.11 at 13h 57m 47s.xml">
       <configuration name="ContactDeleteTests" configurationId="TestNG" />
     </history-entry>
@@ -601,12 +456,14 @@
     <history-entry file="ContactUpdateTests - 2019.05.11 at 14h 30m 45s.xml">
       <configuration name="ContactUpdateTests" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="ContactUpdateTests_testContactUpdate - 2019.05.11 at 14h 33m 13s.xml">
+      <configuration name="ContactUpdateTests.testContactUpdate" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1294" height="694" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -616,7 +473,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" visible="true" weight="0.391453" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" weight="0.391453" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -857,40 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="17" column="120" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactDeleteTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="85">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -919,36 +746,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/NavigationHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <caret line="18" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/HelperBase.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactCreateTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="95">
+          <caret line="17" column="120" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
           <folding>
-            <element signature="e#324#325#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.0.0-alpha-1/396b93f050e477d9ea154465581856239855a797/selenium-api-4.0.0-alpha-1-sources.jar!/org/openqa/selenium/By.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        <state relative-caret-position="204">
+          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="49" />
           <folding>
-            <element signature="e#2276#2277#0" expanded="true" />
-            <element signature="e#2317#2318#0" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2583#2584#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -968,10 +791,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/HelperBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="170">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactDeleteTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.0.0-alpha-1/396b93f050e477d9ea154465581856239855a797/selenium-api-4.0.0-alpha-1-sources.jar!/org/openqa/selenium/By.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+          <folding>
+            <element signature="e#2276#2277#0" expanded="true" />
+            <element signature="e#2317#2318#0" expanded="true" />
+            <element signature="e#2528#2529#0" expanded="true" />
+            <element signature="e#2583#2584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/NavigationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
