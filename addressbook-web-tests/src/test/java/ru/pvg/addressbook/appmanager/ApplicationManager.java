@@ -56,7 +56,7 @@ public class ApplicationManager {
 
 
   public void stop() {
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     navigationHelper.gotoPage("Logout");
     driver.quit();
     String verificationErrorString = verificationErrors.toString();

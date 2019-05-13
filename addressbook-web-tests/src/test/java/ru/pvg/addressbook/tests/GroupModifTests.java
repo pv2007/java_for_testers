@@ -1,5 +1,6 @@
 package ru.pvg.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
@@ -16,10 +17,16 @@ public class GroupModifTests extends TestBase {
       app.getGroupHelper().createGroup(new GroupData("test1", "test2 ", null));
       app.getNavigationHelper().gotoPage("groups");
     }
+
+    int before = app.getGroupHelper().getGroupCount();
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().initGroupModification();
     app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "Новая группа тест33"));
     app.getGroupHelper().submitGroupModificarion();
+    app.getNavigationHelper().gotoPage("groups");
+    int after = app.getGroupHelper().getGroupCount();
+    Assert.assertEquals(after, before);
+
     app.getNavigationHelper().gotoPage("home");
   }
 }
