@@ -31,8 +31,9 @@ public class GroupHelper extends HelperBase {
     click(By.name("delete"));
   }
 
-  public void selectGroup() {
-    click(By.name("selected[]"));
+  public void selectGroup(int index) {
+    driver.findElements(By.name("selected[]")).get(index).click(); //выбор элемента с номером index на странице
+    // click(By.name("selected[]"));   //устарело - выбор первого элемента на странице
   }
 
   public void initGroupModification() {
