@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../SandBox/src/main/java/ru/pvg/sandbox/Primes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SandBox/src/test/java/ru/pvg/sandbox/PrimeTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SandBox/src/main/java/ru/pvg/sandbox/Collections.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -462,6 +460,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1294" height="694" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
