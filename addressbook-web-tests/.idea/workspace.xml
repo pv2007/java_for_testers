@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -45,14 +46,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="101">
+              <caret line="64" lean-forward="true" selection-start-line="61" selection-end-line="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/List.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1081">
+              <caret line="503" column="17" selection-start-line="503" selection-start-column="17" selection-end-line="503" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -69,7 +79,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
+            <state relative-caret-position="84">
               <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -93,20 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Object.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+            <state relative-caret-position="170">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,12 +116,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java">
+        <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Integer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="69" />
+            <state relative-caret-position="243">
+              <caret line="1483" column="22" selection-start-line="1483" selection-start-column="22" selection-end-line="1483" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#57833#57834#0" expanded="true" />
+                <element signature="e#57889#57890#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/Assert.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="795" selection-start-line="795" selection-end-line="795" />
+              <folding>
+                <element signature="e#22661#22662#0" expanded="true" />
+                <element signature="e#22707#22708#0" expanded="true" />
+                <element signature="e#34342#34343#0" expanded="true" />
+                <element signature="e#34388#34389#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -219,10 +236,10 @@
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/ApplicationManager.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/ContactUpdateTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/appmanager/GroupHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/GroupData.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java" />
       </list>
     </option>
   </component>
@@ -336,7 +353,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreateTests.testGroupCreation">
+  <component name="RunManager" selected="TestNG.GroupModifTests.testGroupModification (2)">
     <configuration name="ContactCreateTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -461,7 +478,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupModifTests.testGroupModification (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupModifTests.testGroupModification (2)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -502,17 +519,17 @@
       <item itemvalue="TestNG.GroupDeleteTests" />
       <item itemvalue="TestNG.GroupModifTests.testGroupModification" />
       <item itemvalue="TestNG.GroupModifTests" />
-      <item itemvalue="TestNG.GroupModifTests.testGroupModification (1)" />
       <item itemvalue="TestNG.GroupCreateTests.testGroupCreation" />
       <item itemvalue="TestNG.GroupCreateTests.testGroupCreation (1)" />
+      <item itemvalue="TestNG.GroupModifTests.testGroupModification (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GroupModifTests.testGroupModification (2)" />
+        <item itemvalue="TestNG.GroupModifTests.testGroupModification" />
         <item itemvalue="TestNG.GroupCreateTests.testGroupCreation" />
         <item itemvalue="TestNG.GroupCreateTests.testGroupCreation (1)" />
         <item itemvalue="TestNG.GroupModifTests" />
-        <item itemvalue="TestNG.GroupModifTests.testGroupModification (1)" />
-        <item itemvalue="TestNG.GroupModifTests.testGroupModification" />
       </list>
     </recent_temporary>
   </component>
@@ -530,27 +547,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GroupDeleteTests_(1) - 2019.05.13 at 16h 07m 24s.xml">
-      <configuration name="GroupDeleteTests (1)" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupModifTests_testGroupModification - 2019.05.13 at 16h 27m 14s.xml">
-      <configuration name="GroupModifTests.testGroupModification" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupModifTests_testGroupModification - 2019.05.13 at 16h 35m 12s.xml">
-      <configuration name="GroupModifTests.testGroupModification" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupModifTests - 2019.05.13 at 16h 47m 22s.xml">
-      <configuration name="GroupModifTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupModifTests_testGroupModification_(1) - 2019.05.13 at 17h 01m 03s.xml">
-      <configuration name="GroupModifTests.testGroupModification (1)" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupModifTests - 2019.05.13 at 17h 18m 39s.xml">
-      <configuration name="GroupModifTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupModifTests - 2019.05.13 at 17h 23m 43s.xml">
-      <configuration name="GroupModifTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="GroupModifTests - 2019.05.13 at 17h 24m 16s.xml">
       <configuration name="GroupModifTests" configurationId="TestNG" />
     </history-entry>
@@ -560,12 +556,33 @@
     <history-entry file="GroupCreateTests_testGroupCreation_(1) - 2019.05.14 at 12h 24m 51s.xml">
       <configuration name="GroupCreateTests.testGroupCreation (1)" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="GroupCreateTests_testGroupCreation - 2019.05.14 at 12h 44m 08s.xml">
+      <configuration name="GroupCreateTests.testGroupCreation" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreateTests_testGroupCreation - 2019.05.14 at 14h 02m 42s.xml">
+      <configuration name="GroupCreateTests.testGroupCreation" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModifTests_testGroupModification - 2019.05.14 at 14h 31m 54s.xml">
+      <configuration name="GroupModifTests.testGroupModification" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModifTests_testGroupModification - 2019.05.14 at 14h 33m 55s.xml">
+      <configuration name="GroupModifTests.testGroupModification" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModifTests_testGroupModification - 2019.05.14 at 14h 35m 29s.xml">
+      <configuration name="GroupModifTests.testGroupModification" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModifTests_testGroupModification_(2) - 2019.05.14 at 14h 36m 43s.xml">
+      <configuration name="GroupModifTests.testGroupModification (2)" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModifTests_testGroupModification_(2) - 2019.05.14 at 14h 39m 42s.xml">
+      <configuration name="GroupModifTests.testGroupModification (2)" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1294" height="694" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -575,8 +592,8 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49921876" visible="true" weight="0.391453" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" weight="0.391453" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -596,7 +613,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25078124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -607,7 +624,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" weight="0.391453" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -848,32 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/internal/Invoker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="650" selection-start-line="650" selection-end-line="650" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/Assert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="1019" selection-start-line="1019" selection-end-line="1019" />
-          <folding>
-            <element signature="e#22661#22662#0" expanded="true" />
-            <element signature="e#22707#22708#0" expanded="true" />
-            <element signature="e#34388#34389#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -891,16 +886,6 @@
           <folding>
             <element signature="e#324#325#0" expanded="true" />
             <element signature="e#369#370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -973,10 +958,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1081">
+          <caret line="503" column="17" selection-start-line="503" selection-start-column="17" selection-end-line="503" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/Assert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="795" selection-start-line="795" selection-end-line="795" />
+          <folding>
+            <element signature="e#22661#22662#0" expanded="true" />
+            <element signature="e#22707#22708#0" expanded="true" />
+            <element signature="e#34342#34343#0" expanded="true" />
+            <element signature="e#34388#34389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupDeleteTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="64" lean-forward="true" selection-start-line="61" selection-end-line="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="1483" column="22" selection-start-line="1483" selection-start-column="22" selection-end-line="1483" selection-end-column="22" />
+          <folding>
+            <element signature="e#57833#57834#0" expanded="true" />
+            <element signature="e#57889#57890#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupModifTests.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

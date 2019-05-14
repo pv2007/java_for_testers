@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -58,12 +59,21 @@ public class GroupCreateTests extends TestBase {
     //group.setId(max);
     //group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId(););
 
-    //используем лямбда функцию внутри метода setId()
+    //используем лямбда функцию внутри метода setId() для поиска максимального id
+    // и присваиваем его в набор group
     group.setId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
-
+    // добавляем в before новый элемент
     before.add(group);
-    //преобразуем коллекции before и after в Множества и сравниваем целиком
-    Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
+
+    //начиная с Java 8 у списков появился метод sort
+    // создаем лямбда функцию
+    Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+    //соритируем оба списка
+    before.sort(byId);
+    after.sort(byId);
+
+    //сраввниваем списки before и after, т.к. они одинаково отсортированы
+    Assert.assertEquals(before,after);
 
     app.getNavigationHelper().gotoPage("home");
   }
