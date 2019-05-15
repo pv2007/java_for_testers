@@ -12,7 +12,8 @@ import java.util.List;
    Created Владимир  at 9:57  09.05.2019
 */
 public class ContactDeleteTests extends TestBase {
-  @Test
+
+  @Test (enabled = false)
   public void testContactDelete() throws Exception {
     app.getNavigationHelper().gotoPage("home");
     // проверяем что есть хоть один контакт, если нет - создаем

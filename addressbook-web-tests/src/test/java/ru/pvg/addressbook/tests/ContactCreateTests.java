@@ -15,7 +15,7 @@ import java.util.List;
 public class ContactCreateTests extends TestBase {
 
 
-  @Test
+  @Test (enabled = false)
   public void testContactCreation() throws Exception {
     app.getNavigationHelper().gotoPage("home");
     // параметры тестового контакта
