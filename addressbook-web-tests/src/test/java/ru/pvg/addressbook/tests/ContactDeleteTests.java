@@ -1,5 +1,6 @@
 package ru.pvg.addressbook.tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
@@ -25,16 +26,16 @@ public class ContactDeleteTests extends TestBase {
     app.getContactHelper().initContactDelete(before.size()-1);
     app.getContactHelper().submitContactDelete();
 
-
-    if (!app.getContactHelper().isThereAnyContact()) {
+     if (!app.getContactHelper().isThereAnyContact()) {
       return;
     }
 
-    app.getNavigationHelper().gotoPage("home");
-    app.getContactHelper().initContactDelete(0);
+    //app.getNavigationHelper().gotoPage("home");
+    //app.getContactHelper().initContactDelete(0);
 
     // получить список контактов после удаления
     List<ContactData> after = app.getContactHelper().getContactList();
+
 
     // проверяем что количество правильное
     Assert.assertEquals(after.size(), before.size()-1);

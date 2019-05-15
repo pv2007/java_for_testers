@@ -9,6 +9,7 @@ import ru.pvg.addressbook.model.ContactData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static org.openqa.selenium.By.linkText;
 
@@ -95,18 +96,27 @@ public class ContactHelper extends HelperBase {
     submitContactCreation();
   }
 
-  public boolean isThereAnyContact() {
-    return isElementPresent(By.name("selected[]"));
+  public boolean isThereAnyContact()  {
+    return isElementPresent(By.id("maintable"));
   }
 
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<>();
+    List<WebElement> elements1 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
+    List<WebElement> elements2 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
     List<WebElement> elements = driver.findElements(By.name("entry"));
+    int s1 = elements1.size();
+    int s2 = elements2.size();
+    int s = elements.size();
+//    if (s1 != s2 || s1 != s || s2 != s) {
+//      System.out.println("Не равны наборы!");;
+//    }
+
     for (WebElement element : elements) {
-      int id = Integer.parseInt(element.findElement(By.name("input")).getAttribute("value"));
       String lastName = element.findElements(By.cssSelector("td")).get(1).getText();
       String firstName = element.findElements(By.cssSelector("td")).get(2).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       ContactData contact = new ContactData(id, firstName, null, lastName,null, null, null, null, null, null, null, null, null );
       contacts.add(contact);
     }
