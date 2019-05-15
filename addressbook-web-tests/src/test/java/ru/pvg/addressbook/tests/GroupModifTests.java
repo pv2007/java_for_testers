@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /*
@@ -16,23 +15,23 @@ public class GroupModifTests extends TestBase {
 
   @BeforeMethod
   public void ensurePrecondition() {
-    app.getNavigationHelper().gotoPage("groups");
+    app.goTo().gotoPage("groups");
     // проверка предусловия: есть ли хоть одна группа для модификации. Если нет - создать
-    if (!app.getGroupHelper().isThereAnyGroup()) {
-      app.getGroupHelper().createGroup(new GroupData("test1", "test2 ", null));
-      app.getNavigationHelper().gotoPage("groups");
+    if (app.group().list().size() == 0) {
+      app.group().create(new GroupData("test1", "test2 ", null));
+      app.goTo().gotoPage("groups");
     }
   }
 
 
   @Test
   public void testGroupModification(){
-    List<GroupData> before = app.getGroupHelper().getGroupList();
+    List<GroupData> before = app.group().list();
     int index = before.size() - 1;
     GroupData group = new GroupData(before.get(index).getId(),"test123", "new test234", "new test3");
-    app.getGroupHelper().modifyGroup(index, group);
-    app.getNavigationHelper().gotoPage("groups");
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    app.group().modify(index, group);
+    app.goTo().gotoPage("groups");
+    List<GroupData> after = app.group().list();
     Assert.assertEquals(after.size(), before.size());
 
     //получаем id элемента, который мы модифицировали
@@ -53,7 +52,7 @@ public class GroupModifTests extends TestBase {
     //сравниваем before и after как списки
     Assert.assertEquals(before, after);
 
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
   }
 
 

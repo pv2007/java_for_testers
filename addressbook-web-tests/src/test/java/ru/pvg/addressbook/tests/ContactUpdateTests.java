@@ -3,7 +3,6 @@ package ru.pvg.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
-import ru.pvg.addressbook.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,11 +14,11 @@ public class ContactUpdateTests extends TestBase{
 
   @Test (enabled = false)
   public void testContactUpdate() throws Exception {
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
     // проверяем что есть хоть один контакт, если нет - создаем
     if (!app.getContactHelper().isThereAnyContact()) {
       app.getContactHelper().createContact(new ContactData(0,"z1", "z2", "z3", "z4", "z5", "6", "7", "z8", "z9", "z10", "z11", null), true);
-      app.getNavigationHelper().gotoPage("home");
+      app.goTo().gotoPage("home");
     }
     // получить список контактов перед изменением
     List<ContactData> before = app.getContactHelper().getContactList();
@@ -31,9 +30,9 @@ public class ContactUpdateTests extends TestBase{
 
     app.getContactHelper().fillContactForm(testContact, false);
     app.getContactHelper().submitContactUpdate();
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
 
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
 
     // получить список контактов после изменения
     List<ContactData> after = app.getContactHelper().getContactList();

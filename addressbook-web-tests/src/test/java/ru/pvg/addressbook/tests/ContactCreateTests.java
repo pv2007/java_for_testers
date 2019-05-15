@@ -17,19 +17,19 @@ public class ContactCreateTests extends TestBase {
 
   @Test (enabled = false)
   public void testContactCreation() throws Exception {
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
     // параметры тестового контакта
     ContactData testContact = new ContactData("new z111", "z2", "z333", "z4", "z5", "6", "7", "z8", "z9", "z10", "z11", "test100");
     // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
-    if (!app.getGroupHelper().isThereAnyGroup()) {
-      app.getNavigationHelper().gotoPage("groups");
-      app.getGroupHelper().createGroup(new GroupData(testContact.getGroup(), "test2 ", null));
-      app.getNavigationHelper().gotoPage("home");
+    if (!app.group().isThereAnyGroup()) {
+      app.goTo().gotoPage("groups");
+      app.group().create(new GroupData(testContact.getGroup(), "test2 ", null));
+      app.goTo().gotoPage("home");
     }
     // получить список контактов перед добавлением
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().createContact(testContact, true);
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
 
     // получить список контактов после добавления
     List<ContactData> after = app.getContactHelper().getContactList();

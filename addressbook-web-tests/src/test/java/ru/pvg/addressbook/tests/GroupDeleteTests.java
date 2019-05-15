@@ -14,11 +14,11 @@ public class GroupDeleteTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().gotoPage("groups");
+    app.goTo().gotoPage("groups");
     // проверка предусловия: есть ли хоть одна группа для удаления. Если нет - создать
-    if (!app.getGroupHelper().isThereAnyGroup()) {
-      app.getGroupHelper().createGroup(new GroupData("test1", "test2 ", null));
-      app.getNavigationHelper().gotoPage("groups");
+    if (app.group().list().size() == 0) {
+      app.group().create(new GroupData("test1", "test2 ", null));
+      app.goTo().gotoPage("groups");
     }
   }
 
@@ -26,18 +26,19 @@ public class GroupDeleteTests extends TestBase {
   @Test
   public void testGroupDelete() throws Exception {
     //получение коллекции данных group до удаления
-    List<GroupData> before = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().selectGroup(before.size() - 1);
-    app.getGroupHelper().deleteSelectedGroup();
-    app.getNavigationHelper().gotoPage("groups");
+    List<GroupData> before = app.group().list();
+    int index = before.size() - 1 ;
+
+    app.group().deleteGroup(index);
+    app.goTo().gotoPage("groups");
     //получение коллекции данных group после удаления
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    List<GroupData> after = app.group().list();
 
     //сравнить количество записей коллекции ДО и ПОСЛЕ удаления
     Assert.assertEquals(after.size(), before.size() - 1);
 
     //удаляем последний элемент из коллекции before
-    before.remove(before.size() - 1);
+    before.remove(index);
 
     //сравниваем коллекции before и after по-элементно
 //    for (int i = 0; i < after.size(); i++) {
@@ -47,8 +48,9 @@ public class GroupDeleteTests extends TestBase {
     //сравниваем коллекции before и after целиком
     Assert.assertEquals(before, after);
 
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
   }
+
 
 
 }

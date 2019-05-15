@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /*
@@ -16,16 +14,16 @@ public class GroupCreateTests extends TestBase {
 
   @Test
   public void testGroupCreation() throws Exception {
-    app.getNavigationHelper().gotoPage("groups");
+    app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
-    List<GroupData> before = app.getGroupHelper().getGroupList();
+    List<GroupData> before = app.group().list();
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
     GroupData group = new GroupData("test100", "test2 ", null);
-    app.getGroupHelper().createGroup(group);
+    app.group().create(group);
 
-    app.getNavigationHelper().gotoPage("groups");
+    app.goTo().gotoPage("groups");
     //получить set после добавления
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    List<GroupData> after = app.group().list();
 
     Assert.assertEquals(after.size(), before.size() + 1);
 
@@ -48,7 +46,7 @@ public class GroupCreateTests extends TestBase {
     //сраввниваем списки before и after, т.к. они одинаково отсортированы
     Assert.assertEquals(before,after);
 
-    app.getNavigationHelper().gotoPage("home");
+    app.goTo().gotoPage("home");
   }
 
 }
