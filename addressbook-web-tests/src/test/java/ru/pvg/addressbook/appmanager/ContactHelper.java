@@ -2,9 +2,13 @@ package ru.pvg.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.pvg.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.openqa.selenium.By.linkText;
 
@@ -75,8 +79,9 @@ public class ContactHelper extends HelperBase {
     driver.findElement(By.name("update")).click();
     }
 
-  public void initContactDelete() {
-    driver.findElement(By.name("selected[]")).click();
+  public void initContactDelete(int index) {
+    driver.findElements(By.name("selected[]")).get(index).click(); //выбор элемента с номером index на странице
+    // driver.findElement(By.name("selected[]")).click();
   }
 
   public void submitContactDelete() {
@@ -93,4 +98,19 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAnyContact() {
     return isElementPresent(By.name("selected[]"));
   }
+
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<>();
+    List<WebElement> elements = driver.findElements(By.name("entry"));
+    for (WebElement element : elements) {
+      int id = Integer.parseInt(element.findElement(By.name("input")).getAttribute("value"));
+      String lastName = element.findElements(By.cssSelector("td")).get(1).getText();
+      String firstName = element.findElements(By.cssSelector("td")).get(2).getText();
+      ContactData contact = new ContactData(id, firstName, null, lastName,null, null, null, null, null, null, null, null, null );
+      contacts.add(contact);
+    }
+    return contacts;
+  }
+
 }
