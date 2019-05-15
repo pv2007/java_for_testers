@@ -1,6 +1,7 @@
 package ru.pvg.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
@@ -11,14 +12,19 @@ import java.util.List;
 */
 public class GroupDeleteTests extends TestBase {
 
-  @Test
-  public void testGroupDelete() throws Exception {
+  @BeforeMethod
+  public void ensurePreconditions() {
     app.getNavigationHelper().gotoPage("groups");
     // проверка предусловия: есть ли хоть одна группа для удаления. Если нет - создать
     if (!app.getGroupHelper().isThereAnyGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", "test2 ", null));
       app.getNavigationHelper().gotoPage("groups");
     }
+  }
+
+
+  @Test
+  public void testGroupDelete() throws Exception {
     //получение коллекции данных group до удаления
     List<GroupData> before = app.getGroupHelper().getGroupList();
     app.getGroupHelper().selectGroup(before.size() - 1);
@@ -43,5 +49,6 @@ public class GroupDeleteTests extends TestBase {
 
     app.getNavigationHelper().gotoPage("home");
   }
+
 
 }

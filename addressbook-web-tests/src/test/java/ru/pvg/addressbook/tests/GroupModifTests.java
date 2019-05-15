@@ -1,6 +1,7 @@
 package ru.pvg.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
@@ -13,21 +14,23 @@ import java.util.List;
 */
 public class GroupModifTests extends TestBase {
 
-  @Test
-  public void testGroupModification(){
+  @BeforeMethod
+  public void ensurePrecondition() {
     app.getNavigationHelper().gotoPage("groups");
     // проверка предусловия: есть ли хоть одна группа для модификации. Если нет - создать
     if (!app.getGroupHelper().isThereAnyGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", "test2 ", null));
       app.getNavigationHelper().gotoPage("groups");
     }
+  }
 
+
+  @Test
+  public void testGroupModification(){
     List<GroupData> before = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().selectGroup(before.size() - 1);
-    app.getGroupHelper().initGroupModification();
-    GroupData group = new GroupData(before.get(before.size() - 1).getId(),"test123", "new test234", "new test3");
-    app.getGroupHelper().fillGroupForm(group);
-    app.getGroupHelper().submitGroupModificarion();
+    int index = before.size() - 1;
+    GroupData group = new GroupData(before.get(index).getId(),"test123", "new test234", "new test3");
+    app.getGroupHelper().modifyGroup(index, group);
     app.getNavigationHelper().gotoPage("groups");
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), before.size());
@@ -37,7 +40,7 @@ public class GroupModifTests extends TestBase {
     //group.setId(before.get(before.size() - 1).getId());
 
     // меняем элемент before.size()-1  на элемент с новыми данными
-    before.remove(before.size() - 1);
+    before.remove(index);
     before.add(group);
 
     //начиная с Java 8 у списков появился метод sort в который в качестве параметра передается метод - компаратор
@@ -52,4 +55,6 @@ public class GroupModifTests extends TestBase {
 
     app.getNavigationHelper().gotoPage("home");
   }
+
+
 }

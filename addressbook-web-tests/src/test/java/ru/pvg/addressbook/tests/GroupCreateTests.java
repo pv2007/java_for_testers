@@ -29,36 +29,6 @@ public class GroupCreateTests extends TestBase {
 
     Assert.assertEquals(after.size(), before.size() + 1);
 
-
-    //ищем максимальный идентификатор среди group
-//    int max=0;
-//    for (GroupData g: after) {
-//      if (g.getId() > max) {
-//        max = g.getId();
-//      }
-//    }
-
-    // можно использовать Comparator с анонимным классом с методом compare
-//    Comparator<? super GroupData> byId = new Comparator<GroupData>() {
-//      @Override
-//      public int compare(GroupData o1, GroupData o2) {
-//        return Integer.compare(o1.getId(), o2.getId());
-//      }
-//    };
-    //вычисление в множестве after элемента с максимальным id используя новый метод byId
-//     int max1 = after.stream().max(byId).get().getId();
-
-
-    // C Java 8 можно использовать лямбда функции
-    //Comparator<? super GroupData> byId = (Comparator<GroupData>) (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
-
-    //вычисление в множестве after элемента с максимальным id
-    //int max2 = after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
-
-    // присвиваем максимальный id созданной записи и добавляем в Множество
-    //group.setId(max);
-
-
     //используем лямбда функцию внутри метода setId() для поиска максимального id
     // и присваиваем его в набор group
     //group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId(););
