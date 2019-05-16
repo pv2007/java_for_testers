@@ -9,7 +9,6 @@ import ru.pvg.addressbook.model.ContactData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static org.openqa.selenium.By.linkText;
 
@@ -70,10 +69,15 @@ public class ContactHelper extends HelperBase {
     driver.findElement(linkText("add new")).click();
   }
 
-  public void initContactUpdate() {
-    // поиск и редактирование первого сверху на странице элемента Edit (img)
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='z8z9z10'])[1]/following::img[2]")).click();
+  public void initContactUpdate(int index) {
+
+    // поиск списка элементов entry
+    // из элемента index  поиск 3-го (0,1,2) селектора <td class="center" (кнопка  Edit (img) ) и ее нажатие
+    driver.findElements(By.name("entry")).get(index).findElements(By.cssSelector("td.center")).get(2).click();
+
+    //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='z8z9z10'])[1]/following::img[2]")).click();
     //   driver.findElement(By.linkText("Edit")).click();
+
   }
 
   public void submitContactUpdate() {

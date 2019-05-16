@@ -18,7 +18,7 @@ public class GroupModifTests extends TestBase {
     app.goTo().gotoPage("groups");
     // проверка предусловия: есть ли хоть одна группа для модификации. Если нет - создать
     if (app.group().list().size() == 0) {
-      app.group().create(new GroupData("test1", "test2 ", null));
+      app.group().create(new GroupData().withName("test1").withHeader("test2").withFooter(null));
       app.goTo().gotoPage("groups");
     }
   }
@@ -28,7 +28,8 @@ public class GroupModifTests extends TestBase {
   public void testGroupModification(){
     List<GroupData> before = app.group().list();
     int index = before.size() - 1;
-    GroupData group = new GroupData(before.get(index).getId(),"test123", "new test234", "new test3");
+    GroupData group = new GroupData()
+            .withId(before.get(index).getId()).withName("test123").withHeader("new test234").withFooter("new test3");
     app.group().modify(index, group);
     app.goTo().gotoPage("groups");
     List<GroupData> after = app.group().list();
@@ -36,7 +37,7 @@ public class GroupModifTests extends TestBase {
 
     //получаем id элемента, который мы модифицировали
     // и присваиваем его id в набор group
-    //group.setId(before.get(before.size() - 1).getId());
+    //group.withId(before.get(before.size() - 1).getId());
 
     // меняем элемент before.size()-1  на элемент с новыми данными
     before.remove(index);

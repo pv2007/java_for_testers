@@ -85,7 +85,7 @@ public class GroupHelper extends HelperBase {
       String name = element.getText();
       String header = null;
       String footer= null;
-      GroupData group = new GroupData(id, name, header, footer);
+      GroupData group = new GroupData().withId(id).withName(name).withHeader(header).withFooter(footer);
       groups.add(group);
     }
     return groups;

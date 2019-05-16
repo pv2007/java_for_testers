@@ -15,7 +15,7 @@ import java.util.List;
 public class ContactCreateTests extends TestBase {
 
 
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void testContactCreation() throws Exception {
     app.goTo().gotoPage("home");
     // параметры тестового контакта
@@ -23,7 +23,7 @@ public class ContactCreateTests extends TestBase {
     // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
     if (!app.group().isThereAnyGroup()) {
       app.goTo().gotoPage("groups");
-      app.group().create(new GroupData(testContact.getGroup(), "test2 ", null));
+      app.group().create(new GroupData().withName(testContact.getGroup()).withHeader("test2"));
       app.goTo().gotoPage("home");
     }
     // получить список контактов перед добавлением

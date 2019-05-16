@@ -18,7 +18,7 @@ public class GroupCreateTests extends TestBase {
     //получить set до добавления новой записи
     List<GroupData> before = app.group().list();
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
-    GroupData group = new GroupData("test100", "test2 ", null);
+    GroupData group = new GroupData().withName("test2");
     app.group().create(group);
 
     app.goTo().gotoPage("groups");
@@ -27,10 +27,10 @@ public class GroupCreateTests extends TestBase {
 
     Assert.assertEquals(after.size(), before.size() + 1);
 
-    //используем лямбда функцию внутри метода setId() для поиска максимального id
+    //используем лямбда функцию внутри метода withId() для поиска максимального id
     // и присваиваем его в набор group
-    //group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId(););
-    group.setId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
+    //group.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId(););
+    group.withId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
     // добавляем в before новый элемент
     before.add(group);
 

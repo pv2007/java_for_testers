@@ -12,7 +12,7 @@ import java.util.List;
 */
 public class ContactUpdateTests extends TestBase{
 
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void testContactUpdate() throws Exception {
     app.goTo().gotoPage("home");
     // проверяем что есть хоть один контакт, если нет - создаем
@@ -22,11 +22,11 @@ public class ContactUpdateTests extends TestBase{
     }
     // получить список контактов перед изменением
     List<ContactData> before = app.getContactHelper().getContactList();
+    int index = before.size()-1 ;  // последний элемент
 
-
-    app.getContactHelper().initContactUpdate();
+    app.getContactHelper().initContactUpdate(index);
     // параметры тестового контакта
-    ContactData testContact = new ContactData(before.get(before.size()-1).getId(), "Тест изменения new1", "new2", "new3", "new4", "z5", "6", "7", "z8", "z9", "z10", "newz11", null);
+    ContactData testContact = new ContactData(before.get(index).getId(), "Исправляю new1", "new2", "new3", "new4", "z5", "6", "7", "z8", "z9", "z10", "newz11", null);
 
     app.getContactHelper().fillContactForm(testContact, false);
     app.getContactHelper().submitContactUpdate();
@@ -42,7 +42,7 @@ public class ContactUpdateTests extends TestBase{
     Assert.assertEquals(after.size(), before.size());
 
 
-    before.remove(before.size()-1);
+    before.remove(index);
     before.add(testContact);
 
     //начиная с Java 8 у списков появился метод sort
