@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import ru.pvg.addressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /*
    Created Владимир  at 16:32  06.05.2019
@@ -40,6 +42,12 @@ public class GroupHelper extends HelperBase {
     // click(By.name("selected[]"));   //устарело - выбор первого элемента на странице
   }
 
+
+  public void selectGroupById(int id) {
+    driver.findElement(By.cssSelector("input[value='" + id + "']")).click(); //выбор элемента с номером index на странице
+    // click(By.name("selected[]"));   //устарело - выбор первого элемента на странице
+  }
+
   public void initGroupModification() {
     click(By.name("edit"));
   }
@@ -61,8 +69,21 @@ public class GroupHelper extends HelperBase {
   }
 
 
+  public void delete(GroupData groupToDelete) {
+    selectGroupById(groupToDelete.getId());
+    deleteSelectedGroup();
+
+  }
+
   public void modify(int index, GroupData group) {
     selectGroup(index);
+    initGroupModification();
+    fillGroupForm(group);
+    submitGroupModificarion();
+  }
+
+  public void modifyById(GroupData group) {
+    selectGroupById(group.getId());
     initGroupModification();
     fillGroupForm(group);
     submitGroupModificarion();
@@ -91,6 +112,20 @@ public class GroupHelper extends HelperBase {
     return groups;
   }
 
+
+  public Set<GroupData> all() {
+    Set<GroupData> groups = new HashSet<>();
+    List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
+    for (WebElement element : elements) {
+      int id= Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      String name = element.getText();
+      String header = null;
+      String footer= null;
+      GroupData group = new GroupData().withId(id).withName(name).withHeader(header).withFooter(footer);
+      groups.add(group);
+    }
+    return groups;
+  }
 
 
 }

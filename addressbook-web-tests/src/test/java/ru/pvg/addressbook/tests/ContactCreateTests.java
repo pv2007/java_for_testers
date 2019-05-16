@@ -15,7 +15,7 @@ import java.util.List;
 public class ContactCreateTests extends TestBase {
 
 
-  @Test (enabled = true)
+  @Test (enabled = false)
   public void testContactCreation() throws Exception {
     app.goTo().gotoPage("home");
     // параметры тестового контакта

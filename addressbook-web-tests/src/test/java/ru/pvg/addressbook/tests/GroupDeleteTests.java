@@ -5,7 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 
+import javax.swing.*;
 import java.util.List;
+import java.util.Set;
 
 /*
    Created Владимир  at 12:41  04.05.2019
@@ -16,7 +18,7 @@ public class GroupDeleteTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().gotoPage("groups");
     // проверка предусловия: есть ли хоть одна группа для удаления. Если нет - создать
-    if (app.group().list().size() == 0) {
+    if (app.group().all().size() == 0) {
       app.group().create(new GroupData().withName("test1").withHeader("test2"));
       app.goTo().gotoPage("groups");
     }
@@ -26,19 +28,19 @@ public class GroupDeleteTests extends TestBase {
   @Test
   public void testGroupDelete() throws Exception {
     //получение коллекции данных group до удаления
-    List<GroupData> before = app.group().list();
-    int index = before.size() - 1 ;
+    Set<GroupData> before = app.group().all();
+    GroupData groupToDelete = before.iterator().next(); //выбирается  произвольный элемент множества
 
-    app.group().deleteGroup(index);
+    app.group().delete(groupToDelete);
     app.goTo().gotoPage("groups");
     //получение коллекции данных group после удаления
-    List<GroupData> after = app.group().list();
+    Set<GroupData> after = app.group().all();
 
     //сравнить количество записей коллекции ДО и ПОСЛЕ удаления
     Assert.assertEquals(after.size(), before.size() - 1);
 
     //удаляем последний элемент из коллекции before
-    before.remove(index);
+    before.remove(groupToDelete);
 
     //сравниваем коллекции before и after по-элементно
 //    for (int i = 0; i < after.size(); i++) {

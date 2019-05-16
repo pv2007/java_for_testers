@@ -73,5 +73,4 @@ public class GroupData {
     result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
     return result;
   }
-
 }
