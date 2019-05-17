@@ -43,7 +43,7 @@ public class ApplicationManager {
 
 //    baseUrl = "http://127.0.0.1:81/addressbook/";
     baseUrl = "http://localhost:81/addressbook/";
-    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); // time-out для ожидания загрузки страницы (
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // time-out для ожидания загрузки страницы (
     // (ожидание появления элемента на странице), можно ставить 0 для быстрых сайтов
     //driver.get("http://localhost:81/addressbook/");
     driver.get("http://localhost:81/addressbook/");

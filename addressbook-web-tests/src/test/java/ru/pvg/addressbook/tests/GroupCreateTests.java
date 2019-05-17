@@ -1,12 +1,18 @@
 package ru.pvg.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
+import ru.pvg.addressbook.model.Groups;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 /*
    Created Владимир  at 17:02  03.05.2019 в новом branch
@@ -17,16 +23,16 @@ public class GroupCreateTests extends TestBase {
   public void testGroupCreation() throws Exception {
     app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
-    Set<GroupData> before = app.group().all();
+    Groups before = app.group().all();
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
     GroupData group = new GroupData().withName("test2");
     app.group().create(group);
 
     app.goTo().gotoPage("groups");
     //получить set после добавления
-    Set<GroupData> after = app.group().all();
+    Groups after = app.group().all();
 
-    Assert.assertEquals(after.size(), before.size() + 1);
+    assertThat(after.size(), equalTo(before.size() + 1));
 
     //используем лямбда функцию внутри метода withId() для поиска максимального id
     // и присваиваем его в набор group
@@ -36,8 +42,7 @@ public class GroupCreateTests extends TestBase {
     //получаем максимальный идентификатор id в множестве преобразовав в поток номеров mapToInt()
     // и присваиваем его в поле  id созданной группы
     group.withId(after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt());
-    // добавляем в before новый элемент
-    before.add(group);
+
 
     // ! только для списков - сортируем перед сравнением
     //начиная с Java 8 у списков появился метод sort
@@ -49,8 +54,10 @@ public class GroupCreateTests extends TestBase {
 //    before.sort(byId);
 //    after.sort(byId);
 
-    //сраввниваем списки before и after, т.к. они одинаково отсортированы
-    Assert.assertEquals(before,after);
+    //сраввниваем списки before и after
+    // сравнение из пакета hamcrest
+    assertThat(after, equalTo(
+            before.withAdded(group.withId(after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt()))));
 
     app.goTo().gotoPage("home");
   }

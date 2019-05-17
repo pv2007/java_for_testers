@@ -4,10 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
+import ru.pvg.addressbook.model.Groups;
 
 import javax.swing.*;
 import java.util.List;
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 /*
    Created Владимир  at 12:41  04.05.2019
@@ -28,16 +32,16 @@ public class GroupDeleteTests extends TestBase {
   @Test
   public void testGroupDelete() throws Exception {
     //получение коллекции данных group до удаления
-    Set<GroupData> before = app.group().all();
+    Groups before = app.group().all();
     GroupData groupToDelete = before.iterator().next(); //выбирается  произвольный элемент множества
 
     app.group().delete(groupToDelete);
     app.goTo().gotoPage("groups");
     //получение коллекции данных group после удаления
-    Set<GroupData> after = app.group().all();
+    Groups after = app.group().all();
 
     //сравнить количество записей коллекции ДО и ПОСЛЕ удаления
-    Assert.assertEquals(after.size(), before.size() - 1);
+    assertThat(after.size(), equalTo(before.size() - 1));
 
     //удаляем последний элемент из коллекции before
     before.remove(groupToDelete);
@@ -48,8 +52,8 @@ public class GroupDeleteTests extends TestBase {
 //    }
 
     //сравниваем коллекции before и after целиком
-    Assert.assertEquals(before, after);
-
+    //  MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(groupToDelete))); - сокращаем, делая вызов статических функций
+    assertThat(after, equalTo(before.without(groupToDelete)));
     app.goTo().gotoPage("home");
   }
 

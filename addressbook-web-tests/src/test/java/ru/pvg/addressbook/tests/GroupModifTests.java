@@ -1,10 +1,13 @@
 package ru.pvg.addressbook.tests;
 
 import com.sun.source.doctree.SeeTree;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
+import ru.pvg.addressbook.model.Groups;
 
 import java.util.Comparator;
 import java.util.List;
@@ -28,14 +31,14 @@ public class GroupModifTests extends TestBase {
 
   @Test
   public void testGroupModification(){
-    Set<GroupData> before = app.group().all();
+    Groups before = app.group().all();
     GroupData groupToModif = before.iterator().next();
     GroupData group = new GroupData()
             .withId(groupToModif.getId()).withName("test NEW 123").withHeader("new test234").withFooter("new test3");
     app.group().modifyById(group);
     app.goTo().gotoPage("groups");
-    Set<GroupData> after = app.group().all();
-    Assert.assertEquals(after.size(), before.size());
+    Groups after = app.group().all();
+    MatcherAssert.assertThat(after.size(), CoreMatchers.equalTo(before.size()));
 
     //получаем id элемента, который мы модифицировали
     // и присваиваем его id в набор group
@@ -54,7 +57,8 @@ public class GroupModifTests extends TestBase {
 //    after.sort(byId);
 
     //сравниваем before и after как списки
-    Assert.assertEquals(before, after);
+    //полная запись без сокращения за счет импорта статичных методов
+    MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(groupToModif).withAdded(group)));
 
     app.goTo().gotoPage("home");
   }

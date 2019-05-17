@@ -12,7 +12,7 @@ import java.util.List;
 */
 public class ContactUpdateTests extends TestBase{
 
-  @Test (enabled = false)
+  @Test (enabled = true)
   public void testContactUpdate() throws Exception {
     app.goTo().gotoPage("home");
     // проверяем что есть хоть один контакт, если нет - создаем

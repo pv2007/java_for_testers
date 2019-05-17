@@ -109,13 +109,11 @@ public class ContactHelper extends HelperBase {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elements1 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
     List<WebElement> elements2 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
+    int s1 = elements1.size();  //фиктивные запросы содержимого
+    int s2 = elements2.size();  //фиктивные запросы содержимого
+
     List<WebElement> elements = driver.findElements(By.name("entry"));
-    int s1 = elements1.size();
-    int s2 = elements2.size();
     int s = elements.size();
-//    if (s1 != s2 || s1 != s || s2 != s) {
-//      System.out.println("Не равны наборы!");;
-//    }
 
     for (WebElement element : elements) {
       String lastName = element.findElements(By.cssSelector("td")).get(1).getText();
