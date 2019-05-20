@@ -27,12 +27,12 @@ public class GroupCreateTests extends TestBase {
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
     GroupData group = new GroupData().withName("test2");
     app.group().create(group);
+    assertThat(app.group().getGroupCount(), equalTo(before.size() + 1));
 
     app.goTo().gotoPage("groups");
     //получить set после добавления
     Groups after = app.group().all();
 
-    assertThat(after.size(), equalTo(before.size() + 1));
 
     //используем лямбда функцию внутри метода withId() для поиска максимального id
     // и присваиваем его в набор group
@@ -61,5 +61,31 @@ public class GroupCreateTests extends TestBase {
 
     app.goTo().gotoPage("home");
   }
+
+  @Test
+  // негативный тест - не создается группа с ошибкой в имени и список остается такой же
+  public void testBadGroupCreation() throws Exception {
+    app.goTo().gotoPage("groups");
+    //получить set до добавления новой записи
+    Groups before = app.group().all();
+    //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
+    GroupData group = new GroupData().withName("test2'");
+    app.group().create(group);
+    app.goTo().gotoPage("groups");
+    //проверяем количество элементов через getGroupCount() ДО вызова сета after
+    // это позволяет исключить загрузку объектов, если их количество не равно
+    assertThat(app.group().getGroupCount(), equalTo(before.size()));
+
+    //app.goTo().gotoPage("groups");
+    //получить set after после добавления
+    Groups after = app.group().all();
+
+    // группы до и после одинаковы
+    assertThat(after, equalTo(before));
+
+    app.goTo().gotoPage("home");
+  }
+
+
 
 }
