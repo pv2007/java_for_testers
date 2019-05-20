@@ -16,26 +16,28 @@ public class ContactUpdateTests extends TestBase{
   public void testContactUpdate() throws Exception {
     app.goTo().gotoPage("home");
     // проверяем что есть хоть один контакт, если нет - создаем
-    if (!app.getContactHelper().isThereAnyContact()) {
-      app.getContactHelper().createContact(new ContactData(0,"z1", "z2", "z3", "z4", "z5", "6", "7", "z8", "z9", "z10", "z11", null), true);
+    if (!app.contact().isThereAnyContact()) {
+      // параметры нового контакта
+      ContactData testContact = new ContactData()
+              .withFirstName("z1").withMiddleName( "z2").withLastName("z3").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
       app.goTo().gotoPage("home");
     }
     // получить список контактов перед изменением
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.contact().all();
     int index = before.size()-1 ;  // последний элемент
 
-    app.getContactHelper().initContactUpdate(index);
+    app.contact().initContactUpdate(index);
     // параметры тестового контакта
-    ContactData testContact = new ContactData(before.get(index).getId(), "Исправляю new1", "new2", "new3", "new4", "z5", "6", "7", "z8", "z9", "z10", "newz11", null);
-
-    app.getContactHelper().fillContactForm(testContact, false);
-    app.getContactHelper().submitContactUpdate();
+    ContactData testContact = new ContactData()
+            .withId(before.get(index).getId()).withFirstName("Исправляю new1").withMiddleName( "new2").withLastName("new3").withNickName("new4").withCompany("new5").withTitle("new6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+    app.contact().fillContactForm(testContact, false);
+    app.contact().submitContactUpdate();
     app.goTo().gotoPage("home");
 
     app.goTo().gotoPage("home");
 
     // получить список контактов после изменения
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().all();
 
 
     // проверяем что количество правильное

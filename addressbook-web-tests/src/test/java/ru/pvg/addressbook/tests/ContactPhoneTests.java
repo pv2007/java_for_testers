@@ -14,10 +14,10 @@ public class ContactPhoneTests extends TestBase {
   public void testContactPhones() {
     app.goTo().gotoPage("home");
 
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.contact().all();
     int index = before.size()-1 ;  // последний элемент
-    ContactData contact = app.getContactHelper().
-    app.getContactHelper().initContactUpdate(index);
+    //ContactData contact = app.contact().
+    app.contact().initContactUpdate(index);
 
   }
 

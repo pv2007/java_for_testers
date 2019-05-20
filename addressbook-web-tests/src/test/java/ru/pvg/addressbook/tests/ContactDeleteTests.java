@@ -16,25 +16,27 @@ public class ContactDeleteTests extends TestBase {
   public void testContactDelete() throws Exception {
     app.goTo().gotoPage("home");
     // проверяем что есть хоть один контакт, если нет - создаем
-    if (!app.getContactHelper().isThereAnyContact()) {
-      app.getContactHelper().createContact(new ContactData("z1", "z2", "z3", "z4", "z5", "6", "7", "z8", "z9", "z10", "z11", null), true);
+    if (!app.contact().isThereAnyContact()) {
+      // параметры нового контакта
+      ContactData testContact = new ContactData()
+              .withFirstName("z1").withMiddleName( "z2").withLastName("z3").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
       app.goTo().gotoPage("home");
     }
     // получить список контактов перед добавлением
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.contact().all();
 
-    app.getContactHelper().initContactDelete(before.size()-1);
-    app.getContactHelper().submitContactDelete();
+    app.contact().initContactDelete(before.size()-1);
+    app.contact().submitContactDelete();
 
-     if (!app.getContactHelper().isThereAnyContact()) {
+     if (!app.contact().isThereAnyContact()) {
       return;
     }
 
     //app.goTo().gotoPage("home");
-    //app.getContactHelper().initContactDelete(0);
+    //app.contact().initContactDelete(0);
 
     // получить список контактов после удаления
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().all();
 
 
     // проверяем что количество правильное

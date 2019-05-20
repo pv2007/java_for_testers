@@ -94,7 +94,7 @@ public class ContactHelper extends HelperBase {
     driver.switchTo().alert().accept();
   }
 
-  public void createContact(ContactData contactData, boolean b) {
+  public void create(ContactData contactData, boolean b) {
     initContactCreation();
     fillContactForm(contactData,true);
     submitContactCreation();
@@ -105,7 +105,7 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> all() {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elements1 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
     List<WebElement> elements2 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
@@ -120,7 +120,7 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
       String lastName = cells.get(1).getText();
       String firstName = cells.get(2).getText();
-      ContactData contact = new ContactData(id, firstName, null, lastName,null, null, null, null, null, null, null, null, null );
+      ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
       contacts.add(contact);
     }
     return contacts;

@@ -19,7 +19,7 @@ public class GroupCreateTests extends TestBase {
     //получить set до добавления новой записи
     Groups before = app.group().all();
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
-    GroupData group = new GroupData().withName("test2");
+    GroupData group = new GroupData().withName("test256");
     app.group().create(group);
     app.goTo().gotoPage("groups");
     assertThat(app.group().getGroupCount(), equalTo(before.size() + 1));
@@ -63,7 +63,7 @@ public class GroupCreateTests extends TestBase {
     //получить set до добавления новой записи
     Groups before = app.group().all();
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
-    GroupData group = new GroupData().withName("test2'");
+    GroupData group = new GroupData().withName("test256'");
     app.group().create(group);
     app.goTo().gotoPage("groups");
     //проверяем количество элементов через getGroupCount() ДО вызова сета after

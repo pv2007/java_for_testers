@@ -19,7 +19,8 @@ public class ContactCreateTests extends TestBase {
   public void testContactCreation() throws Exception {
     app.goTo().gotoPage("home");
     // параметры тестового контакта
-    ContactData testContact = new ContactData("new z111", "z2", "z333", "z4", "z5", "6", "7", "z8", "z9", "z10", "z11", "test100");
+    ContactData testContact = new ContactData()
+            .withFirstName("new z111").withMiddleName( "z2").withLastName("z333").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
     // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
     if (!app.group().isThereAnyGroup()) {
       app.goTo().gotoPage("groups");
@@ -27,14 +28,14 @@ public class ContactCreateTests extends TestBase {
       app.goTo().gotoPage("home");
     }
     // получить список контактов перед добавлением
-    List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().createContact(testContact, true);
+    List<ContactData> before = app.contact().all();
+    app.contact().create(testContact, true);
     app.goTo().gotoPage("home");
 
     // получить список контактов после добавления
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().all();
     int max = after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
-    testContact.setId(max);
+    testContact.withId(max);
     // проверяем что количество правильное
     Assert.assertEquals(after.size(), before.size() + 1);
 
