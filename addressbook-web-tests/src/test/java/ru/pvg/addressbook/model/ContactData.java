@@ -2,17 +2,17 @@ package ru.pvg.addressbook.model;
 
 public class ContactData {
   private int id = 0;
-  private final String firstName;
-  private final String middleName;
-  private final String lastName;
-  private final String nickName;
-  private final String title;
-  private final String company;
-  private final String address;
-  private final String homePhone;
-  private final String mobilePhone;
-  private final String workPhone;
-  private final String fax;
+  private String firstName;
+  private String lastName;
+  private String title;
+  private String middleName;
+  private String nickName;
+  private String company;
+  private String address;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
+  private String fax;
   private String group;
 
   @Override

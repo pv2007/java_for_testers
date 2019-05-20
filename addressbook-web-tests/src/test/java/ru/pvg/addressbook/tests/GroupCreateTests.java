@@ -1,15 +1,9 @@
 package ru.pvg.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 import ru.pvg.addressbook.model.Groups;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -27,9 +21,9 @@ public class GroupCreateTests extends TestBase {
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
     GroupData group = new GroupData().withName("test2");
     app.group().create(group);
+    app.goTo().gotoPage("groups");
     assertThat(app.group().getGroupCount(), equalTo(before.size() + 1));
 
-    app.goTo().gotoPage("groups");
     //получить set после добавления
     Groups after = app.group().all();
 
