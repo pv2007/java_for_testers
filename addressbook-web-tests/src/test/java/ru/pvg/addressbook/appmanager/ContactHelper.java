@@ -53,27 +53,25 @@ public class ContactHelper extends HelperBase {
     // присвоение полю из выпадающегог списка Group возможно только при создании contact
     // при изменении этого поля нет на экране (его нельзя изменить
     if (creation) {
-          if (contactData.getGroup() != null) {
-            //присвоить значение атрибуту Group только если он указан
-            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-          }
+      if (contactData.getGroup() != null) {
+        //присвоить значение атрибуту Group только если он указан
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group"))); //проверка отсутствия поля Group на форме
     }
   }
 
 
-
   public void submitContactCreation() {
     driver.findElement(By.name("submit")).click();
-   }
+  }
 
   public void initContactCreation() {
     driver.findElement(linkText("add new")).click();
   }
 
   public void update(ContactData contact) {
-
     // поиск списка элементов entry
     // из элемента index  поиск 3-го (0,1,2) селектора <td class="center" (кнопка  Edit (img) ) и ее нажатие
     driver.findElements(By.name("entry")).get(contact.getId()).findElements(By.cssSelector("td.center")).get(2).click();
@@ -81,14 +79,32 @@ public class ContactHelper extends HelperBase {
 
   public void updateContactById(int id) {
     // поиск элемента edit по идентификатору id
-    driver.findElement(By.cssSelector("a[href='edit.php?id="+id+"']")).click();
+    //вариант 1 - по тексту ссылки (2 разных варианта записи)
+//    driver.findElement(By.cssSelector("a[href='edit.php?id="+id+"']")).click();
+    //то же самое, но с подстановкой
+//    driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']",id))).click();
+
+    //вариант 2 - через путь xpath
+//    driver.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a",id))).click();
+
+    //вариант 3 - через путь xpath с подзапросами
+//    driver.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a",id))).click();
+
+    //вариант 4 - через поиск нужного чекбокса по id
+    //потом переход на родительскую строку (вверх на 2 уровня)
+    //получение содержимого всех ячеек строки
+    //выбор ячейки 8 (порядковый номер 7) и поиск в ней тега a для клика
+    WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(7).findElement(By.tagName("a")).click();
 
   }
 
 
   public void submitContactUpdate() {
     driver.findElement(By.name("update")).click();
-    }
+  }
 
   public void delete(ContactData contact) {
     driver.findElements(By.name("selected[]")).get(contact.getId()).click(); //выбор элемента с номером index на странице
@@ -97,7 +113,7 @@ public class ContactHelper extends HelperBase {
 
 
   public void selectContactById(int id) {
-    driver.findElement(By.cssSelector("input[id='"+id+"']")).click(); //выбор элемента с индексом id на странице
+    driver.findElement(By.cssSelector("input[id='" + id + "']")).click(); //выбор элемента с индексом id на странице
     // driver.findElement(By.name("selected[]")).click();
   }
 
@@ -109,11 +125,11 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contactData, boolean b) {
     initContactCreation();
-    fillContactForm(contactData,true);
+    fillContactForm(contactData, true);
     submitContactCreation();
   }
 
-  public boolean isThereAnyContact()  {
+  public boolean isThereAnyContact() {
     return isElementPresent(By.id("maintable"));
   }
 
@@ -161,5 +177,15 @@ public class ContactHelper extends HelperBase {
   }
 
 
-
+  public ContactData infoFromEditForm(ContactData contact) {
+    updateContactById(contact.getId());
+    String firstName = driver.findElement(By.name("firstname")).getAttribute("value");
+    String lastName = driver.findElement(By.name("lastname")).getAttribute("value");
+    String home = driver.findElement(By.name("home")).getAttribute("value");
+    String mobile = driver.findElement(By.name("mobile")).getAttribute("value");
+    String work = driver.findElement(By.name("work")).getAttribute("value");
+    driver.navigate().back();
+    return new ContactData().withId(contact.getId()).withFirstName(firstName).withLastName(lastName).withHomePhone(home)
+            .withMobilePhone(mobile).withWorkPhone(work);
+  }
 }

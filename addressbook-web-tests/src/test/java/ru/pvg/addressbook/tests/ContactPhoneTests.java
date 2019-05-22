@@ -12,13 +12,9 @@ public class ContactPhoneTests extends TestBase {
   @Test (enabled = false)
   public void testContactPhones() {
     app.goTo().gotoPage("home");
+    ContactData contact = app.contact().all().iterator().next(); //выбирается  произвольный элемент множества
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-    Contacts before = app.contact().all();
-
-    ContactData contactToUpdate = before.iterator().next(); //выбирается  произвольный элемент множества
-
-    //ContactData contact = app.contact().
-    app.contact().updateContactById(contactToUpdate.getId());
 
   }
 

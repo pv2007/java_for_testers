@@ -42,7 +42,7 @@ public class GroupModifTests extends TestBase {
 
 
     //сравниваем before и after как списки
-    //полная запись без сокращения за счет импорта статичных методов
+    //полная запись без сокращения без импорта статичных методов
     MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(groupToModif).withAdded(group)));
 
     app.goTo().gotoPage("home");
