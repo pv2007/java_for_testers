@@ -2,8 +2,7 @@ package ru.pvg.addressbook.tests;
 
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
-
-import java.util.List;
+import ru.pvg.addressbook.model.Contacts;
 
 /*
    Created Владимир  at 11:29  20.05.2019
@@ -14,10 +13,12 @@ public class ContactPhoneTests extends TestBase {
   public void testContactPhones() {
     app.goTo().gotoPage("home");
 
-    List<ContactData> before = app.contact().all();
-    int index = before.size()-1 ;  // последний элемент
+    Contacts before = app.contact().all();
+
+    ContactData contactToUpdate = before.iterator().next(); //выбирается  произвольный элемент множества
+
     //ContactData contact = app.contact().
-    app.contact().initContactUpdate(index);
+    app.contact().updateContactById(contactToUpdate.getId());
 
   }
 

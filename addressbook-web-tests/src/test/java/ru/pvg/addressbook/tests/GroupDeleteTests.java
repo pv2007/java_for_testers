@@ -29,7 +29,7 @@ public class GroupDeleteTests extends TestBase {
   }
 
 
-  @Test
+  @Test (enabled = true)
   public void testGroupDelete() throws Exception {
     //получение коллекции данных group до удаления (используется groupCache, полученный в начале)
     Groups before = app.group().all();
@@ -44,12 +44,8 @@ public class GroupDeleteTests extends TestBase {
     assertThat(after.size(), equalTo(before.size() - 1));
 
     //удаляем последний элемент из коллекции before
-    before.remove(groupToDelete);
+    //    before.remove(groupToDelete);
 
-    //сравниваем коллекции before и after по-элементно
-//    for (int i = 0; i < after.size(); i++) {
-//      Assert.assertEquals(before.get(i), after.get(i));
-//    }
 
     //сравниваем коллекции before и after целиком
     //  MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(groupToDelete))); - сокращаем, делая вызов статических функций

@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.*;
 */
 public class GroupCreateTests extends TestBase {
 
-  @Test
+  @Test (enabled = true)
   public void testGroupCreation() throws Exception {
     app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
@@ -27,27 +27,6 @@ public class GroupCreateTests extends TestBase {
     //получить set после добавления
     Groups after = app.group().all();
 
-
-    //используем лямбда функцию внутри метода withId() для поиска максимального id
-    // и присваиваем его в набор group
-    // group.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId(););
-    // group.withId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
-
-    //получаем максимальный идентификатор id в множестве преобразовав в поток номеров mapToInt()
-    // и присваиваем его в поле  id созданной группы
-    group.withId(after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt());
-
-
-    // ! только для списков - сортируем перед сравнением
-    //начиная с Java 8 у списков появился метод sort
-    // создаем лямбда функцию
-    // ПЕРВЫЙ ВАРИАНТ - старая запись через лямбда-выражение, ВТОРОЙ вариант новый через  метод comparingInt
-    //Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-//    Comparator<? super GroupData> byId = Comparator.comparingInt(GroupData::getId);
-    //соритируем оба списка
-//    before.sort(byId);
-//    after.sort(byId);
-
     //сраввниваем списки before и after
     // сравнение из пакета hamcrest
     assertThat(after, equalTo(
@@ -56,7 +35,7 @@ public class GroupCreateTests extends TestBase {
     app.goTo().gotoPage("home");
   }
 
-  @Test
+  @Test (enabled = true)
   // негативный тест - не создается группа с ошибкой в имени и список остается такой же
   public void testBadGroupCreation() throws Exception {
     app.goTo().gotoPage("groups");

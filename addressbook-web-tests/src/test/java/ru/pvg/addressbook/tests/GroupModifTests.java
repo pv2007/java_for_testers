@@ -29,7 +29,7 @@ public class GroupModifTests extends TestBase {
   }
 
 
-  @Test
+  @Test (enabled = true)
   public void testGroupModification(){
     Groups before = app.group().all();
     GroupData groupToModif = before.iterator().next();
@@ -40,21 +40,6 @@ public class GroupModifTests extends TestBase {
     Groups after = app.group().all();
     MatcherAssert.assertThat(after.size(), CoreMatchers.equalTo(before.size()));
 
-    //получаем id элемента, который мы модифицировали
-    // и присваиваем его id в набор group
-    //group.withId(before.get(before.size() - 1).getId());
-
-    // меняем элемент before.size()-1  на элемент с новыми данными
-    before.remove(groupToModif);
-    before.add(group);
-
-    // только для списков требуется сортировка
-    //начиная с Java 8 у списков появился метод sort в который в качестве параметра передается метод - компаратор
-    // создаем лямбда функцию - компаратор
-//    Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-    //соритируем оба списка
-//    before.sort(byId);
-//    after.sort(byId);
 
     //сравниваем before и after как списки
     //полная запись без сокращения за счет импорта статичных методов

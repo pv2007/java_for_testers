@@ -45,8 +45,8 @@ public class GroupHelper extends HelperBase {
 
 
   public void selectGroupById(int id) {
-    driver.findElement(By.cssSelector("input[value='" + id + "']")).click(); //выбор элемента с номером index на странице
-    // click(By.name("selected[]"));   //устарело - выбор первого элемента на странице
+    driver.findElement(By.cssSelector("input[value='" + id + "']")).click(); //выбор элемента с идентификатором id на странице
+
   }
 
   public void initGroupModification() {

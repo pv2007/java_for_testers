@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.pvg.addressbook.model.ContactData;
+import ru.pvg.addressbook.model.Contacts;
+import ru.pvg.addressbook.model.GroupData;
+import ru.pvg.addressbook.model.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,25 +72,35 @@ public class ContactHelper extends HelperBase {
     driver.findElement(linkText("add new")).click();
   }
 
-  public void initContactUpdate(int index) {
+  public void update(ContactData contact) {
 
     // поиск списка элементов entry
     // из элемента index  поиск 3-го (0,1,2) селектора <td class="center" (кнопка  Edit (img) ) и ее нажатие
-    driver.findElements(By.name("entry")).get(index).findElements(By.cssSelector("td.center")).get(2).click();
+    driver.findElements(By.name("entry")).get(contact.getId()).findElements(By.cssSelector("td.center")).get(2).click();
+  }
 
-    //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='z8z9z10'])[1]/following::img[2]")).click();
-    //   driver.findElement(By.linkText("Edit")).click();
+  public void updateContactById(int id) {
+    // поиск элемента edit по идентификатору id
+    driver.findElement(By.cssSelector("a[href='edit.php?id="+id+"']")).click();
 
   }
+
 
   public void submitContactUpdate() {
     driver.findElement(By.name("update")).click();
     }
 
-  public void initContactDelete(int index) {
-    driver.findElements(By.name("selected[]")).get(index).click(); //выбор элемента с номером index на странице
+  public void delete(ContactData contact) {
+    driver.findElements(By.name("selected[]")).get(contact.getId()).click(); //выбор элемента с номером index на странице
     // driver.findElement(By.name("selected[]")).click();
   }
+
+
+  public void selectContactById(int id) {
+    driver.findElement(By.cssSelector("input[id='"+id+"']")).click(); //выбор элемента с индексом id на странице
+    // driver.findElement(By.name("selected[]")).click();
+  }
+
 
   public void submitContactDelete() {
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]")).click();
@@ -105,7 +118,7 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public List<ContactData> all() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elements1 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
     List<WebElement> elements2 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
@@ -125,5 +138,28 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
+  public Contacts all() {
+    Contacts contacts = new Contacts();
+    List<WebElement> elements1 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
+    List<WebElement> elements2 = driver.findElements(By.name("entry")); //фиктивные запросы содержимого
+    int s1 = elements1.size();  //фиктивные запросы содержимого
+    int s2 = elements2.size();  //фиктивные запросы содержимого
+
+    List<WebElement> elements = driver.findElements(By.name("entry"));
+    int s = elements.size();
+
+    for (WebElement element : elements) {
+      List<WebElement> cells = element.findElements(By.tagName("td"));
+      int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+      String lastName = cells.get(1).getText();
+      String firstName = cells.get(2).getText();
+      ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
+      contacts.add(contact);
+    }
+    return contacts;
+  }
+
+
 
 }

@@ -14,6 +14,7 @@ public class NavigationHelper extends HelperBase{
   }
 
   public void gotoPage(String groups) {
+
     //добавим проверку, на какой странице находимся,  перед выполнением перехода для каждого варианта
     if (groups.equals("groups")) {
       if (isElementPresent(By.tagName("h1"))
@@ -37,6 +38,8 @@ public class NavigationHelper extends HelperBase{
         click(By.linkText(groups));
       }
     }
+
   }
+
 
 }

@@ -3,10 +3,14 @@ package ru.pvg.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
+import ru.pvg.addressbook.model.Contacts;
 import ru.pvg.addressbook.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /*
@@ -14,13 +18,12 @@ import java.util.List;
 */
 public class ContactCreateTests extends TestBase {
 
-
   @Test (enabled = true)
   public void testContactCreation() throws Exception {
     app.goTo().gotoPage("home");
     // параметры тестового контакта
     ContactData testContact = new ContactData()
-            .withFirstName("new z111").withMiddleName( "z2").withLastName("z333").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+            .withFirstName("new z112").withMiddleName( "z2").withLastName("z333").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
     // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
     if (!app.group().isThereAnyGroup()) {
       app.goTo().gotoPage("groups");
@@ -28,30 +31,24 @@ public class ContactCreateTests extends TestBase {
       app.goTo().gotoPage("home");
     }
     // получить список контактов перед добавлением
-    List<ContactData> before = app.contact().all();
+    Contacts before = app.contact().all();
+
     app.contact().create(testContact, true);
     app.goTo().gotoPage("home");
 
     // получить список контактов после добавления
-    List<ContactData> after = app.contact().all();
-    int max = after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
-    testContact.withId(max);
+    Contacts after = app.contact().all();
     // проверяем что количество правильное
     Assert.assertEquals(after.size(), before.size() + 1);
 
-    before.add(testContact);
-
-    //начиная с Java 8 у списков появился метод sort
-    // создаем лямбда функцию
-    // ПЕРВЫЙ ВАРИАНТ - старая запись через лямбда-выражение, ВТОРОЙ вариант новый через  метод comparingInt
-    //Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-    Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
-    //соритируем оба списка
-    before.sort(byId);
-    after.sort(byId);
-
     // проверяем что элементы одинаковые
-    Assert.assertEquals(after, before);
+    assertThat(after, equalTo(
+            before.withAdded(testContact.withId(after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt()))));
+
+    //    старый способ
+    //    int max = after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt();
+    //    testContact.withId(max);
+    //    Assert.assertEquals(after, before);
 
 
   }
