@@ -170,11 +170,11 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
       String lastName = cells.get(1).getText();
       String firstName = cells.get(2).getText();
-//      String allPhones = cells.get(5).getText();
+      String allPhones = cells.get(5).getText();
 //      String[] phones = allPhones.split("\n");// порезали строку allPhones на части по символу конец строки - получили 3 строки
       String[] phones = cells.get(5).getText().split("\n");   //то же самое что 2 предыдущие строки
       ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
-              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]);
+              .withAllPhones(allPhones);
       contacts.add(contact);
     }
     return contacts;

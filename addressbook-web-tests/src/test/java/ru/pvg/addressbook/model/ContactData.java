@@ -14,6 +14,17 @@ public class ContactData {
   private String workPhone;
   private String fax;
   private String group;
+  private String allPhones;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
 
   @Override
   public String toString() {

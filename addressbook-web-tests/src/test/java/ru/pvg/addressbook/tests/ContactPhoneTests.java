@@ -6,6 +6,10 @@ import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
 import ru.pvg.addressbook.model.Contacts;
 
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
@@ -20,13 +24,19 @@ public class ContactPhoneTests extends TestBase {
     ContactData contact = app.contact().all().iterator().next(); //выбирается  произвольный элемент множества
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-    assertThat(contact.getHomePhone(), equalTo(cleaned(contactInfoFromEditForm.getHomePhone())));
-    assertThat(contact.getMobilePhone(), equalTo(cleaned(contactInfoFromEditForm.getMobilePhone())));
-    assertThat(contact.getWorkPhone(), equalTo(cleaned(contactInfoFromEditForm.getWorkPhone())));
+    assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
 
   }
+
+  private String mergePhones(ContactData contact) {
+    return Arrays.asList(contact.getHomePhone(),contact.getMobilePhone(),contact.getWorkPhone())
+            .stream().filter((s) ->!s.equals(""))      //преобразовать в поток stream и удалить пустые элементы анонимной функцией
+            .map(ContactPhoneTests::cleaned)            //применить метод cleaned для всех элементов потока
+            .collect(Collectors.joining("\n"));   //склеить элементы символом \n
+  }
+
   // очистка номера от посторонних символов пробел, - ( )
-  public String cleaned(String phone) {
+  public static String cleaned(String phone) {
     return phone.replaceAll("\\s", "").replaceAll("[-()]","");
   }
 }
