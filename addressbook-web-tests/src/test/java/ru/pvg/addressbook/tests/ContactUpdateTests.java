@@ -1,19 +1,57 @@
 package ru.pvg.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
-import static org.openqa.selenium.By.linkText;
+import ru.pvg.addressbook.model.Contacts;
 
 /*
    Created Владимир  at 9:36  09.05.2019
 */
 public class ContactUpdateTests extends TestBase{
+  @BeforeMethod
+  public void ensurePreconditions() {
+    app.goTo().gotoPage("home");
+    // проверяем что есть хоть один контакт, если нет - создаем
+    if (!app.contact().isThereAnyContact()) {
+      // параметры нового контакта
+      ContactData testContact = new ContactData()
+              .withFirstName("z1").withMiddleName( "z2").withLastName("z3").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+      app.goTo().gotoPage("home");
+      app.contact().create(testContact, true);
+    }
 
-  @Test
+
+  }
+  @Test (enabled = true)
   public void testContactUpdate() throws Exception {
-    app.getContactHelper().initContactUpdate(linkText("home"), "7");
-    app.getContactHelper().fillContactForm(new ContactData("new1", "new2", "new3", "new4", "z5", "6", "7", "newz8", "newz9", "newz10", "newz11"));
-    app.getContactHelper().submitContactUpdate();
+    // получить список контактов перед изменением
+    Contacts before = app.contact().all();
+
+    ContactData contactToUpdate = before.iterator().next(); //выбирается  произвольный элемент множества
+
+    // задаем новые параметры тестового контакта
+    ContactData testContact = new ContactData()
+            .withId(contactToUpdate.getId()).withFirstName("Исправляю new1").withMiddleName( "new2").withLastName("new3").withNickName("new4").withCompany("new5").withTitle("new6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+
+    app.contact().updateContactById(contactToUpdate.getId());
+
+    app.contact().fillContactForm(testContact, false);
+    app.contact().submitContactUpdate();
+    app.goTo().gotoPage("home");
+
+    // получить список контактов после изменения
+    Contacts after = app.contact().all();
+
+    // проверяем что количество одинаковое
+    Assert.assertEquals(after.size(), before.size());
+
+    //сравниваем before и after как списки
+    //полная запись без сокращения за счет импорта статичных методов
+    MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(contactToUpdate).withAdded(testContact)));
   }
 
 

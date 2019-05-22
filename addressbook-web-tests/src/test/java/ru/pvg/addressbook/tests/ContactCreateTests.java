@@ -1,9 +1,16 @@
 package ru.pvg.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
+import ru.pvg.addressbook.model.Contacts;
+import ru.pvg.addressbook.model.GroupData;
 
-import static org.openqa.selenium.By.linkText;
+import java.util.Comparator;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 /*
@@ -11,12 +18,39 @@ import static org.openqa.selenium.By.linkText;
 */
 public class ContactCreateTests extends TestBase {
 
-
-  @Test
+  @Test (enabled = true)
   public void testContactCreation() throws Exception {
-    app.getContactHelper().initContactCreation(linkText("home"), "add new");
-    app.getContactHelper().fillContactForm(new ContactData("z1", "z2", "z3", "z4", "z5", "6", "7", "z8", "z9", "z10", "z11"));
-    app.getContactHelper().submitContactCreation();
+    app.goTo().gotoPage("home");
+    // параметры тестового контакта
+    ContactData testContact = new ContactData()
+            .withFirstName("new z112").withMiddleName( "z2").withLastName("z333").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+    // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
+    if (!app.group().isThereAnyGroup()) {
+      app.goTo().gotoPage("groups");
+      app.group().create(new GroupData().withName(testContact.getGroup()).withHeader("test2"));
+      app.goTo().gotoPage("home");
+    }
+    // получить список контактов перед добавлением
+    Contacts before = app.contact().all();
+
+    app.contact().create(testContact, true);
+    app.goTo().gotoPage("home");
+
+    // получить список контактов после добавления
+    Contacts after = app.contact().all();
+    // проверяем что количество правильное
+    Assert.assertEquals(after.size(), before.size() + 1);
+
+    // проверяем что элементы одинаковые
+    assertThat(after, equalTo(
+            before.withAdded(testContact.withId(after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt()))));
+
+    //    старый способ
+    //    int max = after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt();
+    //    testContact.withId(max);
+    //    Assert.assertEquals(after, before);
+
+
   }
 
 
