@@ -15,6 +15,47 @@ public class ContactData {
   private String fax;
   private String group;
   private String allPhones;
+  private String email;
+  private String email2;
+  private String email3;
+  private String allEmails;
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+
+  public String getEmail() {
+    return email;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
 
   public String getAllPhones() {
     return allPhones;
@@ -35,38 +76,6 @@ public class ContactData {
             ", lastName='" + lastName + '\'' +
             '}';
   }
-
-//  public ContactData(int id, String firstName, String middleName, String lastName, String nickName, String title, String company, String address, String homePhone, String mobilePhone, String workPhone, String fax, String group) {
-//    this.id = id;
-//    this.firstName = firstName;
-//    this.middleName = middleName;
-//    this.lastName = lastName;
-//    this.nickName = nickName;
-//    this.title = title;
-//    this.company = company;
-//    this.address = address;
-//    this.homePhone = homePhone;
-//    this.mobilePhone = mobilePhone;
-//    this.workPhone = workPhone;
-//    this.fax = fax;
-//    this.group = group;
-//  }
-//
-//  public ContactData(String firstName, String middleName, String lastName, String nickName, String title, String company, String address, String homePhone, String mobilePhone, String workPhone, String fax, String group) {
-//    this.id = 0;
-//    this.firstName = firstName;
-//    this.middleName = middleName;
-//    this.lastName = lastName;
-//    this.nickName = nickName;
-//    this.title = title;
-//    this.company = company;
-//    this.address = address;
-//    this.homePhone = homePhone;
-//    this.mobilePhone = mobilePhone;
-//    this.workPhone = workPhone;
-//    this.fax = fax;
-//    this.group = group;
-//  }
 
   public String getFirstName() {
     return firstName;

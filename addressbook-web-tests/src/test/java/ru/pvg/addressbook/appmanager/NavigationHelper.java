@@ -28,8 +28,8 @@ public class NavigationHelper extends HelperBase{
       if ((groups.equals("home"))) {
           // if (isElementPresent(By.name("searchstring"))) {   //поиск по наличию строки поиска "searchstring"
         if (isElementPresent(By.id("maintable"))) {             //поиск по наличию таблицы с id="maintable"
-//          return;
-          click(By.linkText(groups));
+          return;
+          //click(By.linkText(groups));
 
         } else {
           click(By.linkText(groups));

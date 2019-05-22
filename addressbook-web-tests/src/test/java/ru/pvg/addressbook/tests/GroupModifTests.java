@@ -34,7 +34,7 @@ public class GroupModifTests extends TestBase {
     Groups before = app.group().all();
     GroupData groupToModif = before.iterator().next();
     GroupData group = new GroupData()
-            .withId(groupToModif.getId()).withName("test NEW 123").withHeader("new test234").withFooter("new test3");
+            .withId(groupToModif.getId()).withName("test NEW 456").withHeader("new test789").withFooter("new test3");
     app.group().modifyById(group);
     app.goTo().gotoPage("groups");
     Groups after = app.group().all();
