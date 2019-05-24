@@ -26,29 +26,18 @@ public class ContactHelper extends HelperBase {
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
-    driver.findElement(By.name("firstname")).click();
-    driver.findElement(By.name("firstname")).clear();
-    driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-    driver.findElement(By.name("middlename")).clear();
-    driver.findElement(By.name("middlename")).sendKeys(contactData.getMiddleName());
-    driver.findElement(By.name("lastname")).clear();
-    driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
-    driver.findElement(By.name("nickname")).clear();
-    driver.findElement(By.name("nickname")).sendKeys(contactData.getNickName());
-    driver.findElement(By.name("title")).clear();
-    driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
-    driver.findElement(By.name("company")).clear();
-    driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
-    driver.findElement(By.name("address")).clear();
-    driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
-    driver.findElement(By.name("home")).clear();
-    driver.findElement(By.name("home")).sendKeys(contactData.getHomePhone());
-    driver.findElement(By.name("mobile")).clear();
-    driver.findElement(By.name("mobile")).sendKeys(contactData.getMobilePhone());
-    driver.findElement(By.name("work")).clear();
-    driver.findElement(By.name("work")).sendKeys(contactData.getWorkPhone());
-    driver.findElement(By.name("fax")).clear();
-    driver.findElement(By.name("fax")).sendKeys(contactData.getFax());
+    type(By.name("firstname"),contactData.getFirstName());
+    type(By.name("middlename"),contactData.getMiddleName());
+    type(By.name("lastname"),contactData.getLastName());
+    type(By.name("nickname"),contactData.getNickName());
+    type(By.name("title"),contactData.getTitle());
+    type(By.name("company"),contactData.getCompany());
+    type(By.name("home"),contactData.getHomePhone());
+    type(By.name("mobile"),contactData.getMobilePhone());
+    type(By.name("work"),contactData.getWorkPhone());
+    type(By.name("fax"),contactData.getFax());
+    attach(By.name("photo"),contactData.getPhoto());
+
 
     // присвоение полю из выпадающегог списка Group возможно только при создании contact
     // при изменении этого поля нет на экране (его нельзя изменить
@@ -58,6 +47,7 @@ public class ContactHelper extends HelperBase {
         new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
       }
     } else {
+      //выключено для скорости
       Assert.assertFalse(isElementPresent(By.name("new_group"))); //проверка отсутствия поля Group на форме
     }
   }

@@ -2,6 +2,8 @@ package ru.pvg.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 
+import java.io.File;
+
 /*
    Created Владимир  at 17:31  07.05.2019
 */
@@ -22,14 +24,19 @@ public class HelperBase {
     if (text != null) {     //если параметр задан НЕ null , то  очищать и записывать новое значение в поле
       String existingText = driver.findElement(locator).getAttribute("value");  // !только для полей ввода в экранной форме
       // обязательно value с маленькой буквы!
-      String existingText2 = driver.findElement(locator).getText();  // !не для  полей ввода!
-
-      if (! text.equals(existingText)) {    // если новое значение отличается от имеющегося, то очищать и записывать новое значение
+      if (!text.equals(existingText)) {    // если новое значение отличается от имеющегося, то очищать и записывать новое значение
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
       }
     }
   }
+
+  protected void attach(By locator, File file) {
+    if (file != null) {     //если параметр задан НЕ null , то  очищать и записывать новое значение в поле
+      driver.findElement(locator).sendKeys(file.getAbsolutePath());
+    }
+  }
+
 
   protected boolean isElementPresent(By by) {
     try {

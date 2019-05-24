@@ -6,6 +6,7 @@ import ru.pvg.addressbook.model.ContactData;
 import ru.pvg.addressbook.model.Contacts;
 import ru.pvg.addressbook.model.GroupData;
 
+import java.io.File;
 import java.util.Comparator;
 import java.util.List;
 
@@ -22,8 +23,11 @@ public class ContactCreateTests extends TestBase {
   public void testContactCreation() throws Exception {
     app.goTo().gotoPage("home");
     // параметры тестового контакта
+    File photo = new File("src/test/resources/mapbp.jpg");
     ContactData testContact = new ContactData()
-            .withFirstName("new z112").withMiddleName( "z2").withLastName("z333").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+            .withFirstName("new z112").withMiddleName( "z2").withLastName("z333").withNickName("z4")
+            .withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9")
+            .withWorkPhone("z10").withFax("z11").withGroup("test100").withPhoto(photo);
     // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
     if (!app.group().isThereAnyGroup()) {
       app.goTo().gotoPage("groups");
@@ -45,14 +49,16 @@ public class ContactCreateTests extends TestBase {
     assertThat(after, equalTo(
             before.withAdded(testContact.withId(after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt()))));
 
-    //    старый способ
-    //    int max = after.stream().mapToInt( (g) -> g.getId() ).max().getAsInt();
-    //    testContact.withId(max);
-    //    Assert.assertEquals(after, before);
-
-
   }
-
+    // проверить куда указывает рабочая деректория
+//  @Test
+//  public void testCurrentDir() {
+//    File currentDir = new File(".");
+//    System.out.println(currentDir.getAbsoluteFile());
+//    File photo = new File("src/test/resources/mapbp.jpg");
+//    System.out.println(photo.getAbsoluteFile());
+//    System.out.println(photo.exists());
+//  }
 
 }
 

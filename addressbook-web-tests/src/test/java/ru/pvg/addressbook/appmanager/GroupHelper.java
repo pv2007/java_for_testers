@@ -92,7 +92,7 @@ public class GroupHelper extends HelperBase {
     initGroupModification();
     fillGroupForm(group);
     submitGroupModificarion();
-    groupCache = null; //???
+    groupCache = null;
   }
 
 
