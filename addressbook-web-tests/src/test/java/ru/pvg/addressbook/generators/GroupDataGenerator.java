@@ -1,5 +1,7 @@
 package ru.pvg.addressbook.generators;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import ru.pvg.addressbook.model.GroupData;
 
 import java.io.File;
@@ -14,33 +16,45 @@ import java.util.List;
 */
 public class GroupDataGenerator {
 
-  public static void main (String[] args) throws IOException {
-    int count = Integer.parseInt(args[0]);  // количество групп - первый параметр командной строки
-    File file = new File(args[1]);          // путь к файлу  - второй параметр командной строки
+  @Parameter(names = "-c", description = "Group count")
+  public int count;     // количество групп - первый параметр командной строки
+
+  @Parameter(names = "-f", description = "Target file")
+  public String file;   // путь к файлу  - второй параметр командной строки
+
+  public static void main(String[] args) throws IOException {
+    GroupDataGenerator generator = new GroupDataGenerator();
+    JCommander.newBuilder()
+            .addObject(generator)
+            .build()
+            .parse(args);
+    generator.run();
+  }
+
+  private void run() throws IOException {
     //генерация тестовых данных
     List<GroupData> groups = generateGroup(count);
     //запись данных в файл
-    save(groups, file);
-
+    save(groups, new File(file));
 
   }
 
-  private static void save(List<GroupData> groups, File file) throws IOException {
-    System.out.println(new File(".").getAbsolutePath());
+  private void save(List<GroupData> groups, File file) throws IOException {
+    System.out.println(file.getAbsolutePath());
     Writer writer = new FileWriter(file);
     for (GroupData group : groups) {
-      writer.write(String.format("%s;%s;%s\n", group.getGroupName(),group.getGroupHeader(),group.getGroupFooter()));
+      writer.write(String.format("%s;%s;%s\n", group.getGroupName(), group.getGroupHeader(), group.getGroupFooter()));
     }
     writer.close();   //ОБЯЗАТЕЛЬНО закрыть файл после записи!!!
   }
 
-  private static List<GroupData> generateGroup(int count) {
+  private List<GroupData> generateGroup(int count) {
     List<GroupData> groups = new ArrayList<>();
-    for (int i=0;i<count;i++) {
+    for (int i = 0; i < count; i++) {
       groups.add(new GroupData()
-              .withName(String.format("test %s",i))
-              .withHeader(String.format("test header %s",i))
-              .withFooter(String.format("test footer %s",i)));
+              .withName(String.format("test %s", i))
+              .withHeader(String.format("test header %s", i))
+              .withFooter(String.format("test footer %s", i)));
     }
     return groups;
   }
