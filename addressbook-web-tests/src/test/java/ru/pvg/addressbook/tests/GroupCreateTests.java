@@ -1,9 +1,14 @@
 package ru.pvg.addressbook.tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
 import ru.pvg.addressbook.model.Groups;
 
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -13,13 +18,20 @@ import static org.hamcrest.MatcherAssert.*;
 */
 public class GroupCreateTests extends TestBase {
 
-  @Test (enabled = true)
-  public void testGroupCreation() throws Exception {
+  @DataProvider
+  public Iterator<Object[]> validGroups() {
+    List<Object[]> list = new ArrayList<Object[]>();
+    list.add(new Object[] {new GroupData().withName("test1").withHeader("header 1").withFooter("footer 1")});
+    list.add(new Object[] {new GroupData().withName("test2").withHeader("header 2").withFooter("footer 2")});
+    list.add(new Object[] {new GroupData().withName("test3").withHeader("header 3").withFooter("footer 3")});
+    return list.iterator();
+  }
+
+  @Test (dataProvider = "validGroups")
+  public void testGroupCreation(GroupData group) throws Exception {
     app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
     Groups before = app.group().all();
-    //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
-    GroupData group = new GroupData().withName("test256");
     app.group().create(group);
     app.goTo().gotoPage("groups");
     assertThat(app.group().getGroupCount(), equalTo(before.size() + 1));
@@ -35,7 +47,7 @@ public class GroupCreateTests extends TestBase {
     app.goTo().gotoPage("home");
   }
 
-  @Test (enabled = true)
+  @Test (enabled = false)
   // негативный тест - не создается группа с ошибкой в имени и список остается такой же
   public void testBadGroupCreation() throws Exception {
     app.goTo().gotoPage("groups");
