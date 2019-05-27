@@ -1,8 +1,14 @@
 package ru.pvg.addressbook.model;
 
-public class GroupData {
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+@XStreamAlias("group")     //задать имя тегу класса
+
+public class GroupData {
+  @XStreamOmitField         // пропустить поле при выводе в XML
   private int id = Integer.MAX_VALUE;
+
   private String groupName;
   private String groupHeader;
   private String groupFooter;
