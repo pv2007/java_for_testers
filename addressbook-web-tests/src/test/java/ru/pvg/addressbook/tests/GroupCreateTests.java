@@ -6,6 +6,7 @@ import ru.pvg.addressbook.model.GroupData;
 import ru.pvg.addressbook.model.Groups;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,11 +20,17 @@ import static org.hamcrest.MatcherAssert.*;
 public class GroupCreateTests extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validGroups() {
+  public Iterator<Object[]> validGroups() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[] {new GroupData().withName("test1").withHeader("header 1").withFooter("footer 1")});
-    list.add(new Object[] {new GroupData().withName("test2").withHeader("header 2").withFooter("footer 2")});
-    list.add(new Object[] {new GroupData().withName("test3").withHeader("header 3").withFooter("footer 3")});
+    //открываем файл источник
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
+    String line = reader.readLine();   // читаем одну строку
+    while (line != null) {
+      String[] split = line.split(";");      // выделяем отдельные элементы
+      // добавляем данные в список list
+      list.add(new Object[] {new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+      line = reader.readLine();
+    }
     return list.iterator();
   }
 
