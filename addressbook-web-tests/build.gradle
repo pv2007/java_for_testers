@@ -1,5 +1,7 @@
 apply plugin: 'java'
 
+ tasks.withType(Javadoc) { options.encoding = 'UTF-8' }
+
 repositories {
     mavenCentral()
 }
@@ -14,6 +16,15 @@ dependencies {
 
 test {
     useTestNG()
+
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+
 }
 
 
@@ -28,10 +39,12 @@ test {
 //    useTestNG {
 //        suites 'src/test/resources/testng-groups.xml'
 //    }
-//}
+//    systemProperty 'browser', "${browser}"
+// }
 
 //task testContacts(type: Test) {
 //    useTestNG {
 //        suites 'src/test/resources/testng-contacts.xml'
 //    }
+//    systemProperty 'browser', "${browser}"
 //}

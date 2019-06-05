@@ -35,7 +35,7 @@ public class ContactUpdateTests extends TestBase{
 
     // задаем новые параметры тестового контакта
     ContactData testContact = new ContactData()
-            .withId(contactToUpdate.getId()).withFirstName("Исправляю new1").withMiddleName( "new2").withLastName("new3").withNickName("new4").withCompany("new5").withTitle("new6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+            .withId(contactToUpdate.getId()).withFirstName("Исправляю на new1").withMiddleName( "new2").withLastName("new3").withNickName("new4").withCompany("new5").withTitle("new6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
 
     app.contact().updateContactById(contactToUpdate.getId());
 

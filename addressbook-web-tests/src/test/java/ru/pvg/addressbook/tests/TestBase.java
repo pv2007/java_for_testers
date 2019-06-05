@@ -7,12 +7,24 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import ru.pvg.addressbook.appmanager.ApplicationManager;
 
+import java.io.IOException;
+
 /*
    Created Владимир  at 12:53  04.05.2019
 */
 public class TestBase {
 
-  protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+  //protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+
+  protected static ApplicationManager app;
+
+  static {
+    try {
+      app = new ApplicationManager(System.getProperty("browser",BrowserType.FIREFOX));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
 
   @BeforeSuite(alwaysRun = true)
