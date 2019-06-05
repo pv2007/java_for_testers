@@ -1,5 +1,6 @@
 package ru.pvg.addressbook.model;
 
+import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
@@ -8,9 +9,11 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class GroupData {
   @XStreamOmitField         // пропустить поле при выводе в XML
   private int id = Integer.MAX_VALUE;
-
+  @Expose                   // выгружать поле при выводе в JSON
   private String groupName;
+  @Expose                   // выгружать поле при выводе в JSON
   private String groupHeader;
+  @Expose                   // выгружать поле при выводе в JSON
   private String groupFooter;
 
   public int getId() {

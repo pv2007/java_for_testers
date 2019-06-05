@@ -1,5 +1,7 @@
 package ru.pvg.addressbook.tests;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -8,7 +10,6 @@ import ru.pvg.addressbook.model.Groups;
 
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,7 +23,7 @@ import static org.hamcrest.MatcherAssert.*;
 public class GroupCreateTests extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validGroups() throws IOException {
+  public Iterator<Object[]> validGroupsFromXml() throws IOException {
     //открываем файл источник
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
     String xml = "";
@@ -38,7 +39,24 @@ public class GroupCreateTests extends TestBase {
     return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
   }
 
-  @Test (dataProvider = "validGroups")
+  @DataProvider
+  public Iterator<Object[]> validGroupsFromJson() throws IOException {
+    //открываем файл источник
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
+    String json = "";
+    String line = reader.readLine();   // читаем одну строку
+    while (line != null) {
+      json += line;
+      line = reader.readLine();
+    }
+    Gson gson = new Gson();
+    List<GroupData> groups = (List<GroupData>) gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());   // запись (List<GroupData>) - явное преобразование Object
+            // который возвращает fromJson(), в тип GroupData
+            //TypeToken...   вместо List<GroupData>.class
+    return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+  }
+
+  @Test (dataProvider = "validGroupsFromJson")
   public void testGroupCreation(GroupData group) throws Exception {
     app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
