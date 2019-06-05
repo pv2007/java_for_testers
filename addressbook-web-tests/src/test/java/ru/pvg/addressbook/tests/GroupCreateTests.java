@@ -25,35 +25,37 @@ public class GroupCreateTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroupsFromXml() throws IOException {
     //открываем файл источник
-    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
-    String xml = "";
-    String line = reader.readLine();   // читаем одну строку
-    while (line != null) {
-      xml += line;
-      line = reader.readLine();
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")))) {
+      String xml = "";
+      String line = reader.readLine();   // читаем одну строку
+      while (line != null) {
+        xml += line;
+        line = reader.readLine();
+      }
+      XStream xstream = new XStream();
+      xstream.processAnnotations(GroupData.class);
+      List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);   // запись (List<GroupData>) - явное преобразование Object
+      // который возвращает fromXML(), в тип GroupData
+      return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
-    XStream xstream = new XStream();
-    xstream.processAnnotations(GroupData.class);
-    List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);   // запись (List<GroupData>) - явное преобразование Object
-                                                                      // который возвращает fromXML(), в тип GroupData
-    return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
   }
 
   @DataProvider
   public Iterator<Object[]> validGroupsFromJson() throws IOException {
     //открываем файл источник
-    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
-    String json = "";
-    String line = reader.readLine();   // читаем одну строку
-    while (line != null) {
-      json += line;
-      line = reader.readLine();
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))) {
+      String json = "";
+      String line = reader.readLine();   // читаем одну строку
+      while (line != null) {
+        json += line;
+        line = reader.readLine();
+      }
+      Gson gson = new Gson();
+      List<GroupData> groups = (List<GroupData>) gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());   // запись (List<GroupData>) - явное преобразование Object
+      // который возвращает fromJson(), в тип GroupData
+      //TypeToken...   вместо List<GroupData>.class
+      return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
-    Gson gson = new Gson();
-    List<GroupData> groups = (List<GroupData>) gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());   // запись (List<GroupData>) - явное преобразование Object
-            // который возвращает fromJson(), в тип GroupData
-            //TypeToken...   вместо List<GroupData>.class
-    return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
   }
 
   @Test (dataProvider = "validGroupsFromJson")

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7af9a97a-1a44-47b1-937b-122dec24baeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/generators/GroupDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/generators/GroupDataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/GroupData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/GroupData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -49,11 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/generators/GroupDataGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+            <state relative-caret-position="1308">
+              <caret line="86" column="2" selection-start-line="86" selection-start-column="2" selection-end-line="86" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,11 +77,11 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+            <state relative-caret-position="170">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -530,9 +527,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ContactCreateTests_testCurrentDir - 2019.05.23 at 17h 13m 24s.xml">
-      <configuration name="ContactCreateTests.testCurrentDir" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="ContactCreateTests - 2019.05.24 at 14h 47m 10s.xml">
       <configuration name="ContactCreateTests" configurationId="TestNG" />
     </history-entry>
@@ -558,6 +552,9 @@
       <configuration name="GroupCreateTests.testGroupCreation" configurationId="TestNG" />
     </history-entry>
     <history-entry file="GroupCreateTests_testGroupCreation - 2019.06.05 at 11h 33m 35s.xml">
+      <configuration name="GroupCreateTests.testGroupCreation" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreateTests_testGroupCreation - 2019.06.05 at 12h 14m 17s.xml">
       <configuration name="GroupCreateTests.testGroupCreation" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -1068,16 +1065,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/resources/groups.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/generators/GroupDataGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/model/GroupData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1090,8 +1077,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/tests/GroupCreateTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/pvg/addressbook/generators/GroupDataGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1308">
+          <caret line="86" column="2" selection-start-line="86" selection-start-column="2" selection-end-line="86" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
