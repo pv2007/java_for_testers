@@ -3,6 +3,8 @@ package ru.pvg.addressbook.tests;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.GroupData;
@@ -21,6 +23,8 @@ import static org.hamcrest.MatcherAssert.*;
    Created Владимир  at 17:02  03.05.2019 в новом branch
 */
 public class GroupCreateTests extends TestBase {
+
+
 
   @DataProvider
   public Iterator<Object[]> validGroupsFromXml() throws IOException {
@@ -60,6 +64,7 @@ public class GroupCreateTests extends TestBase {
 
   @Test (dataProvider = "validGroupsFromJson")
   public void testGroupCreation(GroupData group) throws Exception {
+
     app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
     Groups before = app.group().all();
