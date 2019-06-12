@@ -1,34 +1,70 @@
 package ru.pvg.addressbook.model;
 
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.io.File;
 
+@Entity
+@Table(name="addressbook")
+
 public class ContactData {
+  @Id
+  @Column(name="id")
   private int id = Integer.MAX_VALUE;
+
+  @Column(name="firstName")
   private String firstName;
+  @Column(name="lastName")
   private String lastName;
+  @Column(name="title")
   private String title;
+  @Column(name="middleName")
   private String middleName;
+  @Column(name="nickName")
   private String nickName;
+  @Column(name="company")
   private String company;
+  @Column(name="address")
+  @Type(type = "text")
   private String address;
+  @Column(name="home")
+  @Type(type = "text")
   private String homePhone;
+  @Column(name="mobile")
+  @Type(type = "text")
   private String mobilePhone;
+  @Column(name="work")
+  @Type(type = "text")
   private String workPhone;
+  @Column(name="fax")
+  @Type(type = "text")
   private String fax;
+  @Transient
   private String group;
+   @Transient
   private String allPhones;
+  @Column(name="email")
+  @Type(type = "text")
   private String email;
+  @Column(name="email2")
+  @Type(type = "text")
   private String email2;
+  @Column(name="email3")
+  @Type(type = "text")
   private String email3;
+  @Transient
   private String allEmails;
-  private File photo;
+  @Column(name="photo")
+  @Type(type = "text")
+  private String photo;
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
