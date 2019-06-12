@@ -36,7 +36,8 @@ public class DbConnectionTest {
 
     Connection conn = null;
     try {
-      conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook?user=root&password=");
+      //conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook?user=root&password=");   //для MariaDB
+      conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook?user=root&password=&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC");
 
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery("SELECT group_id, group_name, group_header, group_footer FROM group_list");
@@ -46,7 +47,7 @@ public class DbConnectionTest {
         groups.add(new GroupData().withId(rs.getInt("group_id")).withName(rs.getString("group_name"))
                 .withName(rs.getString("group_header")).withFooter(rs.getString("group_footer")));
       }
-      //закрываем все коннекты 
+      //закрываем все коннекты
       rs.close();
       st.close();
       conn.close();
