@@ -2,6 +2,8 @@ package ru.pvg.addressbook.model;
 
 import com.google.common.collect.ForwardingSet;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +11,6 @@ import java.util.Set;
    Created Владимир  at 17:46  16.05.2019
 */
 public class Groups extends ForwardingSet<GroupData> {
-
   private Set<GroupData> delegate;    //это атрибут, он никак не сязан с методом delegate()
 
   public Groups(Groups groups) {
@@ -18,6 +19,10 @@ public class Groups extends ForwardingSet<GroupData> {
 
   public Groups() {
     this.delegate = new HashSet<GroupData>();
+  }
+
+  public Groups(Collection<GroupData> groups) {
+    this.delegate = new HashSet<GroupData>(groups);
   }
 
 

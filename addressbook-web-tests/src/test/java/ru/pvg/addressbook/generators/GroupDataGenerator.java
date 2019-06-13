@@ -91,8 +91,8 @@ public class GroupDataGenerator {
     for (int i = 0; i < count; i++) {
       groups.add(new GroupData()
               .withName(String.format("test %s", i))
- //             .withHeader(String.format("test\nheader %s", i))
-              .withFooter(String.format("test\nfooter %s", i)));
+              .withHeader(String.format("test header", i))
+              .withFooter(String.format("test footer %s", i)));
     }
     return groups;
   }

@@ -32,13 +32,13 @@ public class GroupDeleteTests extends TestBase {
   @Test (enabled = true)
   public void testGroupDelete() throws Exception {
     //получение коллекции данных group до удаления (используется groupCache, полученный в начале)
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
     GroupData groupToDelete = before.iterator().next(); //выбирается  произвольный элемент множества
 
     app.group().delete(groupToDelete);
     app.goTo().gotoPage("groups");
     //получение коллекции данных group после удаления
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
 
     //сравнить количество записей коллекции ДО и ПОСЛЕ удаления
     assertThat(after.size(), equalTo(before.size() - 1));

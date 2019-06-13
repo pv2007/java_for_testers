@@ -20,24 +20,26 @@ public class GroupModifTests extends TestBase {
 
   @BeforeMethod
   public void ensurePrecondition() {
-    app.goTo().gotoPage("groups");
-    // проверка предусловия: есть ли хоть одна группа для модификации. Если нет - создать
-    if (app.group().all().size() == 0) {
+    if (app.db().groups().size() == 0) {
+      app.goTo().gotoPage("groups");
       app.group().create(new GroupData().withName("test1").withHeader("test2").withFooter(null));
       app.goTo().gotoPage("groups");
     }
+
   }
 
 
   @Test (enabled = true)
   public void testGroupModification(){
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
     GroupData groupToModif = before.iterator().next();
+
     GroupData group = new GroupData()
             .withId(groupToModif.getId()).withName("test NEW 456").withHeader("new test789").withFooter("new test3");
+    app.goTo().gotoPage("groups");
     app.group().modifyById(group);
     app.goTo().gotoPage("groups");
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
     MatcherAssert.assertThat(after.size(), CoreMatchers.equalTo(before.size()));
 
 

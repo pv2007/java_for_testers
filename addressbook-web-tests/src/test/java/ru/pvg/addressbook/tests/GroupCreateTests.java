@@ -65,15 +65,17 @@ public class GroupCreateTests extends TestBase {
   @Test (dataProvider = "validGroupsFromJson")
   public void testGroupCreation(GroupData group) throws Exception {
 
-    app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
+
+    app.goTo().gotoPage("groups");
     app.group().create(group);
     app.goTo().gotoPage("groups");
-    assertThat(app.group().getGroupCount(), equalTo(before.size() + 1));
 
     //получить set после добавления
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
+
+    assertThat(after.size(), equalTo(before.size() + 1));
 
     //сраввниваем списки before и after
     // сравнение из пакета hamcrest
@@ -88,7 +90,7 @@ public class GroupCreateTests extends TestBase {
   public void testBadGroupCreation() throws Exception {
     app.goTo().gotoPage("groups");
     //получить set до добавления новой записи
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
     //создать набор с параметрами новой записи (но без поля id ! - т.к. мы его не знаем)
     GroupData group = new GroupData().withName("test256'");
     app.group().create(group);
@@ -99,7 +101,7 @@ public class GroupCreateTests extends TestBase {
 
     //app.goTo().gotoPage("groups");
     //получить set after после добавления
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
 
     // группы до и после одинаковы
     assertThat(after, equalTo(before));
