@@ -42,13 +42,15 @@ public class ContactHelper extends HelperBase {
     // присвоение полю из выпадающегог списка Group возможно только при создании contact
     // при изменении этого поля нет на экране (его нельзя изменить
     if (creation) {
-      if (contactData.getGroup() != null) {
+      if (contactData.getGroups().size() != 0) {
+        //проверяем что указана только одна группа, т.к. две группы нельзя присвоить
+        Assert.assertTrue(contactData.getGroups().size() == 1);
         //присвоить значение атрибуту Group только если он указан
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getGroupName());
       }
     } else {
       //выключено для скорости
-      Assert.assertFalse(isElementPresent(By.name("new_group"))); //проверка отсутствия поля Group на форме
+      //Assert.assertFalse(isElementPresent(By.name("new_group"))); //проверка отсутствия поля Group на форме
     }
   }
 

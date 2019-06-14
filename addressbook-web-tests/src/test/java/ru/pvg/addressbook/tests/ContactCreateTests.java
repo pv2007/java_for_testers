@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
 import ru.pvg.addressbook.model.Contacts;
 import ru.pvg.addressbook.model.GroupData;
+import ru.pvg.addressbook.model.Groups;
 
 import java.io.File;
 import java.util.Comparator;
@@ -21,19 +22,24 @@ public class ContactCreateTests extends TestBase {
 
   @Test (enabled = true)
   public void testContactCreation() throws Exception {
+
     app.goTo().gotoPage("home");
-    // параметры тестового контакта
-    File photo = new File("src/test/resources/mapbp.jpg");
-    ContactData testContact = new ContactData()
-            .withFirstName("new z112").withMiddleName( "z2").withLastName("z333").withNickName("z4")
-            .withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9")
-            .withWorkPhone("z10").withFax("z11").withGroup("test100").withPhoto(photo);
     // проверка что есть хоть одна группа, если нет - то ее создаем (группа указывается при создании тестового контакта)
     if (!app.group().isThereAnyGroup()) {
       app.goTo().gotoPage("groups");
-      app.group().create(new GroupData().withName(testContact.getGroup()).withHeader("test2"));
+      app.group().create(new GroupData().withName("test 100").withHeader("test200"));
       app.goTo().gotoPage("home");
     }
+
+    Groups groups = app.db().groups();
+    // параметры тестового контакта
+    File photo = new File("src/test/resources/mapbp.jpg");
+
+    ContactData testContact = new ContactData()
+            .withFirstName("new z332").withMiddleName( "z2").withLastName("z333").withNickName("z4")
+            .withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9")
+            .withWorkPhone("z10").withFax("z11").withPhoto(photo).inGroup(groups.iterator().next()); //.withGroup("test100")
+
     // получить список контактов перед добавлением
     Contacts before = app.contact().all();
 

@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pvg.addressbook.model.ContactData;
 import ru.pvg.addressbook.model.Contacts;
+import ru.pvg.addressbook.model.Groups;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,13 +21,14 @@ public class ContactDeleteTests extends TestBase {
 
     @Test (enabled = true)
   public void testContactDelete() throws Exception {
+      Groups groups = app.db().groups();
 
       app.goTo().gotoPage("home");
       // проверяем что есть хоть один контакт, если нет - создаем
       if (!app.contact().isThereAnyContact()) {
         // параметры нового контакта
         ContactData testContact = new ContactData()
-                .withFirstName("z1").withMiddleName( "z2").withLastName("z3").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").withGroup("test100");
+                .withFirstName("z1").withMiddleName( "z2").withLastName("z3").withNickName("z4").withCompany("z5").withTitle("6").withAddress("7").withHomePhone("z8").withMobilePhone("z9").withWorkPhone("z10").withFax("z11").inGroup(groups.iterator().next());
         app.goTo().gotoPage("home");
         app.contact().create(testContact, true);
       }

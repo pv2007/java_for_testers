@@ -4,6 +4,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="addressbook")
@@ -40,9 +42,8 @@ public class ContactData {
   @Column(name="fax")
   @Type(type = "text")
   private String fax;
+
   @Transient
-  private String group;
-   @Transient
   private String allPhones;
   @Column(name="email")
   @Type(type = "text")
@@ -55,16 +56,22 @@ public class ContactData {
   private String email3;
   @Transient
   private String allEmails;
+
   @Column(name="photo")
   @Type(type = "text")
   private String photo;
+
+  @ManyToMany(fetch = FetchType.EAGER) // данные по-максимуму забираются из базы (EAGER - жадный/ LAZY - ленивый(default))
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
   public File getPhoto() {
     return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo.getPath();
+    this.photo = photo.getAbsolutePath();
     return this;
   }
 
@@ -171,9 +178,7 @@ public class ContactData {
     return fax;
   }
 
-  public String getGroup() {
-    return group;
-  }
+
 
   public int getId() {
     return id;
@@ -262,8 +267,12 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
     return this;
   }
 }
