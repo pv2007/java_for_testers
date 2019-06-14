@@ -31,6 +31,8 @@ public class GroupModifTests extends TestBase {
 
   @Test (enabled = true)
   public void testGroupModification(){
+    String s1 = System.getProperty("verifyUI");
+
     Groups before = app.db().groups();
     GroupData groupToModif = before.iterator().next();
 
@@ -48,7 +50,11 @@ public class GroupModifTests extends TestBase {
     MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(groupToModif).withAdded(group)));
 
     app.goTo().gotoPage("home");
+
+    verifyGroupListInUI();
   }
+
+
 
 
 }

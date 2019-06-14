@@ -19,6 +19,8 @@ import java.util.List;
 */
 public class GroupDataGenerator {
 
+  // пример: -c 3 -f src/test/resources/groups.json -d json
+
   @Parameter(names = "-c", description = "Group count")
   public int count;     // количество групп - первый параметр командной строки
 
