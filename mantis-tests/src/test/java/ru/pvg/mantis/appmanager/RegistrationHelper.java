@@ -18,6 +18,6 @@ public class RegistrationHelper {
 
   public void start(String usernname, String emails) {
     driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); // time-out для ожидания загрузки страницы (
-    driver.get(app.getProperty("web.baseUrl")+"/singup_page.php");
+    driver.get(app.getProperty("web.baseUrl")+"/signup_page.php");
   }
 }

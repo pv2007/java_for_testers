@@ -23,6 +23,8 @@ public class ApplicationManager {
   private WebDriver driver;   //доступен только внутри этого класса через вызов getDriver
   private String browser;
   private RegistrationHelper registrationHelper;
+  private FtpHelper ftp;
+
 
   public ApplicationManager(String browser) throws IOException {
     this.browser = browser;
@@ -76,4 +78,12 @@ public class ApplicationManager {
     }
     return driver;
   }
+
+  public FtpHelper ftp() {
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
+  }
+
 }
