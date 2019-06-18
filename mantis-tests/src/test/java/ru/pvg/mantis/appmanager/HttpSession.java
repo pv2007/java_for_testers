@@ -31,29 +31,11 @@ public class HttpSession {
 
     public boolean login (String username, String password) throws IOException {
 
-/*
-      // Для сайта Addressbook
-      // создаем post запрос
-      HttpPost post = new HttpPost(app.getProperty("web.baseUrl"));
+
+      HttpPost post = new HttpPost(app.getProperty("web.baseUrl")+"/login.php");
       List<NameValuePair> params = new ArrayList<>();
-//      String log = String.format("user=%s", username)+"&"+String.format("pass=%s", password);
-//      params.add(new BasicNameValuePair(log));
       params.add(new BasicNameValuePair("username", username));
       params.add(new BasicNameValuePair("password", password));
-      params.add(new BasicNameValuePair("secure_session", "on"));
-      params.add(new BasicNameValuePair("return", ""));
-      post.setEntity(new UrlEncodedFormEntity(params));
-      //отправляем запрос и получаем ответ
-      CloseableHttpResponse response = httpClient.execute(post);
-      String body = getTextFrom(response);
-      //проверяем - действительно ли пользователь зашел в приложение
-      return body.contains(String.format("<b>(%s)</b>", username));
-*/
-
-      HttpPost post = new HttpPost(app.getProperty("web.baseUrl")+"/login_page.php");
-      List<NameValuePair> params = new ArrayList<>();
-      params.add(new BasicNameValuePair("username", username));
-      //params.add(new BasicNameValuePair("password", password));
       params.add(new BasicNameValuePair("secure_session", "on"));
       params.add(new BasicNameValuePair("return", "index.php"));
       post.setEntity(new UrlEncodedFormEntity(params));
@@ -61,45 +43,8 @@ public class HttpSession {
       CloseableHttpResponse response = httpClient.execute(post);
       String body = getTextFrom(response);
       Boolean isLog = body.contains(String.format("Введите пароль для '%s'", username));
-
-      params.clear();
-      post = new HttpPost(app.getProperty("web.baseUrl")+"/login_password_page.php");
-      //List<NameValuePair> params2 = new ArrayList<>();
-      //params2.add(new BasicNameValuePair("username", username));
-      params.add(new BasicNameValuePair("password", password));
-      params.add(new BasicNameValuePair("secure_session", "on"));
-      params.add(new BasicNameValuePair("return", "index.php"));
-      post.setEntity(new UrlEncodedFormEntity(params));
-      //отправляем запрос и получаем ответ
-      response = httpClient.execute(post);
-      String body2 = getTextFrom(response);
-      Boolean isPass = body2.contains(String.format("Введите пароль для '%s'", username));
-
-
-
-
-
       //проверяем - действительно ли пользователь зашел в приложение
-      return body.contains(String.format("Введите пароль для '%s'", username));
-
-
-/*
-      HttpPost post2 = new HttpPost(app.getProperty("web.baseUrl")+"/login_password_page.php");
-      List<NameValuePair> params2 = new ArrayList<>();
-      params.add(new BasicNameValuePair("username", username));
-      params.add(new BasicNameValuePair("password", password));
-      params.add(new BasicNameValuePair("secure_session", "on"));
-      params.add(new BasicNameValuePair("return", "index.php"));
-      post.setEntity(new UrlEncodedFormEntity(params));
-      //отправляем запрос и получаем ответ
-      CloseableHttpResponse response2 = httpClient.execute(post2);
-      body = getTextFrom(response2);
-      //проверяем - действительно ли пользователь зашел в приложение
-      return body.contains(String.format("<a href=\"/mantisbt-2.21.1/account_page.php\">%s</a>", username));
-*/
-
-
-
+      return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
     }
 
   private String getTextFrom(CloseableHttpResponse response) throws IOException {
@@ -114,7 +59,7 @@ public class HttpSession {
     HttpGet get = new HttpGet((app.getProperty("web.baseUrl")+"/my_view_page.php"));
     CloseableHttpResponse response = httpClient.execute(get);
     String body = getTextFrom(response);
-    return body.contains(String.format("<a href=\"/mantisbt-2.21.1/account_page.php\">%s</a>", username));
+    return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
 
 }
