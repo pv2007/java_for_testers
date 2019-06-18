@@ -20,8 +20,7 @@ import static org.testng.Assert.fail;
 public class ApplicationManager {
   private final Properties properties;
   WebDriver driver;
-  private String baseUrl;
-  private StringBuffer verificationErrors = new StringBuffer();
+  // private StringBuffer verificationErrors = new StringBuffer();
   private String browser;
 
   public ApplicationManager(String browser) throws IOException {
@@ -52,11 +51,20 @@ public class ApplicationManager {
 
 
   public void stop() {
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
+//    String verificationErrorString = verificationErrors.toString();
+//    if (!"".equals(verificationErrorString)) {
+//      fail(verificationErrorString);
+//    }
+  }
+
+  // новые сессии можно открывать под несколько пользователей одновременно
+  public HttpSession newSession() {
+    return new HttpSession(this);
+  }
+
+  public String getProperty(String key) {
+    return properties.getProperty(key);
   }
 }
