@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.MatchResult;
 
 import static org.testng.Assert.fail;
 
@@ -19,9 +20,9 @@ import static org.testng.Assert.fail;
 */
 public class ApplicationManager {
   private final Properties properties;
-  WebDriver driver;
-  // private StringBuffer verificationErrors = new StringBuffer();
+  private WebDriver driver;   //доступен только внутри этого класса через вызов getDriver
   private String browser;
+  private RegistrationHelper registrationHelper;
 
   public ApplicationManager(String browser) throws IOException {
     this.browser = browser;
@@ -32,31 +33,15 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-    if (browser.equals(BrowserType.FIREFOX)) {
-      driver = new FirefoxDriver();
-    } else if (browser.equals(BrowserType.CHROME)) {
-      driver = new ChromeDriver();
-    } else if (browser.equals(BrowserType.IE)) {
-      String ieDriverFilePath = "C:\\Tools\\IEDriverServer.exe";
-      //Specify the executable file path to sysem property.
-      System.setProperty("webdriver.ie.driver", ieDriverFilePath);
-      //Initiate web browser
-      driver = new InternetExplorerDriver();
-    }
-
-    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); // time-out для ожидания загрузки страницы (
-    // (ожидание появления элемента на странице), можно ставить 0 для быстрых сайтов
-    driver.get(properties.getProperty("web.baseUrl"));
+    //вызов драйвера перенесли в getDriver()
   }
 
 
   public void stop() {
-    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-    driver.quit();
-//    String verificationErrorString = verificationErrors.toString();
-//    if (!"".equals(verificationErrorString)) {
-//      fail(verificationErrorString);
-//    }
+    if (driver != null) {
+      driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+      driver.quit();
+    }
   }
 
   // новые сессии можно открывать под несколько пользователей одновременно
@@ -66,5 +51,29 @@ public class ApplicationManager {
 
   public String getProperty(String key) {
     return properties.getProperty(key);
+  }
+
+  public RegistrationHelper registration() {
+    if (registrationHelper == null) {
+      registrationHelper = new RegistrationHelper(this);
+    }
+    return registrationHelper;
+  }
+
+  public WebDriver getDriver() {
+    if (driver == null){
+      if (browser.equals(BrowserType.FIREFOX)) {
+        driver = new FirefoxDriver();
+      } else if (browser.equals(BrowserType.CHROME)) {
+        driver = new ChromeDriver();
+      } else if (browser.equals(BrowserType.IE)) {
+        String ieDriverFilePath = "C:\\Tools\\IEDriverServer.exe";
+        //Specify the executable file path to sysem property.
+        System.setProperty("webdriver.ie.driver", ieDriverFilePath);
+        //Initiate web browser
+        driver = new InternetExplorerDriver();
+      }
+    }
+    return driver;
   }
 }
